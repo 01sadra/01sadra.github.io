@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>هنر on Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+    <link>http://localhost:1313/blog/%D9%87%D9%86%D8%B1/</link>
+    <description>Recent content in هنر on Hugo ʕ•ᴥ•ʔ Bear Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <lastBuildDate>Mon, 15 Aug 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/%D9%87%D9%86%D8%B1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>اپلیکیشن، رسانه، هنر</title>
+      <link>http://localhost:1313/%D8%A7%D9%BE%D9%84%DB%8C%DA%A9%DB%8C%D8%B4%D9%86-%D8%B1%D8%B3%D8%A7%D9%86%D9%87-%D9%87%D9%86%D8%B1/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/%D8%A7%D9%BE%D9%84%DB%8C%DA%A9%DB%8C%D8%B4%D9%86-%D8%B1%D8%B3%D8%A7%D9%86%D9%87-%D9%87%D9%86%D8%B1/</guid>
+      <description>&lt;p&gt;تنها دو مدیا در طول تاریخ توانستند به خلوت انسان ها راه پیدا کنند و با تنها با او روبرو شوند. موسیقی و ادبیات. هر دو با اغماض در دسته هنر قرار میگیرند و هر دو ساخته‌ی افرادی هستند،‌ با روحیاتی مشابه. نویسنده‌ها و موزیسین‌ها این آشفتگان و خانه‌به‌دوشان تاریخ. هردو هم خلاقیت را جوهر اصلی کارشان میدانند.&lt;/p&gt;&#xA;&lt;p&gt;داستان میرفت ادامه داشته باشد که به اختراع کامپیوتر رسیدیم و مفهوم نرم افزار و ویدیو گیم اختراع شد و بعد در کمتر از شصت سال کامپیوتر زیرکانه و طنازانه تکامل یافت و به گوشی های هوشمند رسید. امروز آن‌ها تبدیل به شخصی ترین همراه، رسانه و سرگرمی انسان ها شدند. اسمارتفون ها دست و دل بازند. همه را در دل خود جای میدهند، موسیقی کتاب و تقریبا هر مدیای ممکن دیگری را. اما یک تفاوت عمده با همه رفقای قبل از خود دارند که میگویم.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

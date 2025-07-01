@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>کافمن on Sadra.blog</title>
+    <link>//localhost:1313/tags/%DA%A9%D8%A7%D9%81%D9%85%D9%86/</link>
+    <description>Recent content in کافمن on Sadra.blog</description>
+    <image>
+      <title>Sadra.blog</title>
+      <url>//localhost:1313/images/share.png</url>
+      <link>//localhost:1313/images/share.png</link>
+    </image>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>fa-IR</language>
+    <lastBuildDate>Thu, 29 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/%DA%A9%D8%A7%D9%81%D9%85%D9%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>هک یادگیری: چگونه هرچیزی را در کمتر از بیست ساعت یاد بگیریم؟</title>
+      <link>//localhost:1313/blog/2017/06/2017-06-29-%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C/</link>
+      <pubDate>Thu, 29 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/2017/06/2017-06-29-%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;آپدیت&lt;/strong&gt;: توضیحاتی به انتهای پست اضافه شد.&lt;/p&gt;
+&lt;p&gt;پیش نوشت:این نوشته شامل سه بخش است، در بخش اول در تقاطع فلسفه و تکنولوژی می ایستیم و سعی میکنیم به این سوال پاسخ بدهیم که چرا یادگیری مهمترین موضوع زندگی هر انسانی است، بخش جذابی است حاوی نظرات شخصی من و دوستش دارم.&lt;/p&gt;
+&lt;p&gt;در بخش دوم: به سراغ مغز میرویم، سری به نروساینس میزنیم، نگاه میکنیم در هنگام یا،دگیری چه اتفاقی برای مغز می‌افتد و در بخش سوم: به سراغ تکنیکی میرویم که عملگرایانه ترین قسمت نوشته است. &lt;strong&gt;چطور زیر بیست ساعت هر چیزی را یاد بگیریم؟&lt;/strong&gt; اگر حوصله ندارید دو بخش اول را بخوانید (هرچند توصیه میکنم بخوانید) یکراست به سراغ بخش سوم بروید.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

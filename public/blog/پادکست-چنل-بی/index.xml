@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>پادکست-چنل-بی on Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+    <link>http://localhost:1313/blog/%D9%BE%D8%A7%D8%AF%DA%A9%D8%B3%D8%AA-%DA%86%D9%86%D9%84-%D8%A8%DB%8C/</link>
+    <description>Recent content in پادکست-چنل-بی on Hugo ʕ•ᴥ•ʔ Bear Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <lastBuildDate>Wed, 06 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/%D9%BE%D8%A7%D8%AF%DA%A9%D8%B3%D8%AA-%DA%86%D9%86%D9%84-%D8%A8%DB%8C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>به بهانه‌ی صدمین پست و تغییر قالب وبلاگ: چند کلمه‌ی پراکنده</title>
+      <link>http://localhost:1313/%D8%A8%D9%87-%D8%A8%D9%87%D8%A7%D9%86%D9%87%DB%8C-%D8%B5%D8%AF%D9%85%DB%8C%D9%86-%D9%BE%D8%B3%D8%AA-%D9%88-%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%82%D8%A7%D9%84%D8%A8-%D9%88%D8%A8%D9%84%D8%A7%DA%AF-%DA%86%D9%86%D8%AF-%DA%A9%D9%84%D9%85%D9%87%DB%8C-%D9%BE%D8%B1%D8%A7%DA%A9%D9%86%D8%AF%D9%87/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/%D8%A8%D9%87-%D8%A8%D9%87%D8%A7%D9%86%D9%87%DB%8C-%D8%B5%D8%AF%D9%85%DB%8C%D9%86-%D9%BE%D8%B3%D8%AA-%D9%88-%D8%AA%D8%BA%DB%8C%DB%8C%D8%B1-%D9%82%D8%A7%D9%84%D8%A8-%D9%88%D8%A8%D9%84%D8%A7%DA%AF-%DA%86%D9%86%D8%AF-%DA%A9%D9%84%D9%85%D9%87%DB%8C-%D9%BE%D8%B1%D8%A7%DA%A9%D9%86%D8%AF%D9%87/</guid>
+      <description>&lt;p&gt;خیلی وقت پیش من اینجا نوشتم برای شروع وبلاگ نویسی ایده‌م این بوده که صدتا پست بنویسم بدون این که حتا یک بازخورد بگیرم، خب حالا شما دارید صدمین پست این وبلاگ رو میخونید و اینجا خیلی خیلی بیشتر از یک بازخورد گرفته و من خیلی خوشحال و ممنونم.&lt;/p&gt;&#xA;&lt;p&gt;بالاخره قالب وبلاگ رو عوض کردیم. واضحه که از قالب‌های استاتیک الهام گرفته شده اما هنوز روی وردپرسیم. قالب دست رنج &lt;a href=&#34;http://theyahya.com&#34;&gt;یحیی‌ست&lt;/a&gt; و ازش تشکر میکنم. سورسش رو میتونید در &lt;a href=&#34;http://github.com/theyahya/thewhite&#34;&gt;گیتهابش&lt;/a&gt; ببینید و استار بزنید. سعی کردیم مشکلات بزرگ قالب قبلی رو برطرف کنیم. مهم‌ترین مشکل، ناوبری و دسترسی به مقاله‌های گذشته بود. که خب الان ساده‌ترین کار ممکنه. و حالت قبلی(نمایش همه مقاله‌ در صفحه اصلی) داشت از نظر پهنای باند هم کمی فشار میاورد که حالا اوضاع بهتر شده. موضوع دیگه کامنت‌ها بود. امیدوارم کسی که دیسکاس رو بی‌دلیل فیلتر کرده شب‌ها راحت بخوابه. به هر حال فکر میکنم الان ساختار کامنت‌ها بهتر شده. خوانایی  برامون در اولویت اول قرار داشت و به همین دلیل خیلی از فیچر‌ها حذف شدند. فونت رو تغییر دادیم و دیگه یکان نیست، اما من هنوزم دو به شک هستم که خوانایی کدوم فونت بهتره. برای فونت هنوز از یکان استفاده میکنیم. ازگرفتن  بازخورد در این زمینه استقبال میکنم.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>فرهنگستان on Hugo ʕ•ᴥ•ʔ Bear Blog</title>
+    <link>http://localhost:1313/blog/%D9%81%D8%B1%D9%87%D9%86%DA%AF%D8%B3%D8%AA%D8%A7%D9%86/</link>
+    <description>Recent content in فرهنگستان on Hugo ʕ•ᴥ•ʔ Bear Blog</description>
+    <generator>Hugo</generator>
+    <language>en-US</language>
+    <copyright>Copyright © 2020, Jane Doe.</copyright>
+    <lastBuildDate>Tue, 26 Jul 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/%D9%81%D8%B1%D9%87%D9%86%DA%AF%D8%B3%D8%AA%D8%A7%D9%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>نان داغ، ترمینولوژی سوخته</title>
+      <link>http://localhost:1313/%D9%86%D8%A7%D9%86-%D8%AF%D8%A7%D8%BA-%D8%AA%D8%B1%D9%85%DB%8C%D9%86%D9%88%D9%84%D9%88%DA%98%DB%8C-%D8%B3%D9%88%D8%AE%D8%AA%D9%87/</link>
+      <pubDate>Tue, 26 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/%D9%86%D8%A7%D9%86-%D8%AF%D8%A7%D8%BA-%D8%AA%D8%B1%D9%85%DB%8C%D9%86%D9%88%D9%84%D9%88%DA%98%DB%8C-%D8%B3%D9%88%D8%AE%D8%AA%D9%87/</guid>
+      <description>&lt;p&gt;یکم. کافیست کمتر از ده دقیقه در جمع افرادی که متخصص یک امر هستند بنشینید. بیایید برنامه نویس ها را در نظر بگیریم. منظور از برنامه نویس را بگیرید همه اهالی IT کشور. تقریبا به جز قیود، صفات و حروف اضافه نود درصد افعال و اسامی به زبان انگلیسی است. اگر ناآشنا به آن تخصص باشید و زبان انگلیسی خوبی هم نداشته باشید تقریبا هیچ چیز از صحبت های جمع نمیفهمید. این داستان در جمع دکتر ها، مهندسان و باقی تخصص های عملی هم صادق است.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

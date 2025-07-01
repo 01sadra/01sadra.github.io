@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>رپ on Sadra.blog</title>
+    <link>//localhost:1313/tags/%D8%B1%D9%BE/</link>
+    <description>Recent content in رپ on Sadra.blog</description>
+    <image>
+      <title>Sadra.blog</title>
+      <url>//localhost:1313/images/share.png</url>
+      <link>//localhost:1313/images/share.png</link>
+    </image>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>fa-IR</language>
+    <lastBuildDate>Wed, 10 Aug 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//localhost:1313/tags/%D8%B1%D9%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>تهران مال کیه؟</title>
+      <link>//localhost:1313/blog/2016/08/2016-08-10-%D9%86%D9%82%D8%AF-%D8%B1%D9%BE-%D9%81%D8%A7%D8%B1%D8%B3%DB%8C/</link>
+      <pubDate>Wed, 10 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/blog/2016/08/2016-08-10-%D9%86%D9%82%D8%AF-%D8%B1%D9%BE-%D9%81%D8%A7%D8%B1%D8%B3%DB%8C/</guid>
+      <description>&lt;p&gt;روستایی با یک کدخدای نابلد را تصور کنید، در یک کشور جنگ زده. در حالی که قحطی همه جا را گرفته است و کد خدا بی توجه به بمب و باروت های پایتخت، در حال تصمیم گیری های اشتباه برای اهالی روستا و بدتر کردن زندگی آن ها است، اهالی تصمیم میگیرند برای بهتر کردن اوضاع خودشان کاری بکنند. اما مشکل اینجاست که تقریبا همه پیر و فرتوتند. اگر جوانی هست هم به دلیل ازدواج های فامیلی نقص ژنیتیکی دارد. یا کور است، یا لال است یا فلج. خلاصه شاید بتواند کمکی بکند اما رهبری و پیروزی ؟ هرگز. تمام امید روستا به یک خانواده است که چندین پسر جوان و سالم دارد. اگر این هشت پسر به کمک اهالی بیایند(چیزی که در آن روستا مسئولیت طبیعی شان است) احتمال این که اهالی بتوانند متحد شوند و بر مشکلات فائق بیایند زیاد میشود.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
