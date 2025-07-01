@@ -1,101 +1,67 @@
-baseURL = "/"
-title = "Sadra.blog"
-theme = "PaperMod"
-
+baseURL = "https://example.com/"
+title = "Sadra Blog"
 languageCode = "fa-IR"
 defaultContentLanguage = "fa"
+theme = "PaperMod"
 
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
 buildExpired = false
 
-[pagination]
-  pagerSize = 5
-
-mainSections = ["blog", "2019", "2020", "2021", "2022", "2023", "2024", "2025"]
-
-[minify]
-  disableXML = true
-  minifyOutput = true
+summaryLength = 0
+disableKinds = ["RSS", "sitemap", "taxonomy", "taxonomyTerm"]
 
 [params]
   env = "production"
-  title = "Sadra.blog"
-  description = "وبلاگ شخصی سدره علی‌آبادی"
+  title = "Sadra Blog"
+  description = "وبلاگ سدره علی‌آبادی"
   keywords = ["Blog", "Hugo", "PaperMod"]
   author = "Sadra Aliabadi"
-  images = ["/images/share.png"]
-  DateFormat = "2006-01-02"
-  defaultTheme = "auto"
+  defaultTheme = "light"
   disableThemeToggle = false
 
-  ShowReadingTime = true
-  ShowShareButtons = true
-  ShowPostNavLinks = true
-  ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
-  ShowWordCount = true
-  ShowRssButtonInSectionTermList = true
-  UseHugoToc = true
-  disableSpecial1stPost = false
-  disableScrollToTop = false
+  ShowReadingTime = false
+  ShowShareButtons = false
+  ShowPostNavLinks = false
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = false
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = false
+  UseHugoToc = false
+  disableSpecial1stPost = true
+  disableScrollToTop = true
   comments = false
-  hidemeta = false
-  hideSummary = false
+  hidemeta = true
+  hideSummary = true
   showtoc = false
   tocopen = false
-
-  [params.homeInfoParams]
-    Title = "سلام به وبلاگ من 👋"
-    Content = "تو این وبلاگ همه نوشته‌هام رو به ترتیب زمان می‌تونی ببینی."
-
-
-  [params.assets]
-    favicon = "/images/favicon.png"
-      customCSS = ["/css/rtl.css"]
-    favicon16x16 = "/images/favicon-16x16.png"
-    favicon32x32 = "/images/favicon-32x32.png"
-    apple_touch_icon = "/images/apple-touch-icon.png"
-    safari_pinned_tab = "/images/safari-pinned-tab.svg"
-
-  [params.label]
-    text = "Home"
-    icon = "/apple-touch-icon.png"
-    iconHeight = 35
-
-  [[params.socialIcons]]
-    name = "github"
-    url = "https://github.com/01sadra"
-
-  [[params.socialIcons]]
-    name = "x"
-    url = "https://x.com/username"
 
   [params.cover]
     hidden = true
     hiddenInList = true
     hiddenInSingle = true
 
-  [params.editPost]
-    URL = "https://github.com/01sadra/blog-hugo/edit/main/content"
-    Text = "Suggest Changes"
-    appendFilePath = true
-
-  [params.fuseOpts]
-    isCaseSensitive = false
-    shouldSort = true
-    location = 0
-    distance = 1000
-    threshold = 0.4
-    minMatchCharLength = 0
-    limit = 10
-    keys = ["title", "permalink", "summary", "content"]
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+[frontmatter]
+  summary = [""]
+
+[permalinks]
+  blog = "/:slug/"
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[pagination]
+  pagerSize = 5
+
+[params.assets]
+  customCSS = ["/css/rtl.css"]
 
 [menu]
 

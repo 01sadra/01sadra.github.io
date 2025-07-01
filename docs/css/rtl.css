@@ -1,0 +1,53 @@
+/* کل صفحه راست به چپ بشه */
+html, body {
+    direction: rtl;
+    unicode-bidi: embed;
+    text-align: right;
+  }
+  
+  /* متن‌ها راست‌چین بشه */
+  p, li, span, div, h1, h2, h3, h4, h5, h6 {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  /* nav و منوها هم راست به چپ */
+  nav, .breadcrumbs, .pagination, .menu, .site-nav {
+    direction: rtl;
+  }
+  
+  /* لیست پست‌ها */
+  article, .post-entry {
+    text-align: right;
+    direction: rtl;
+  }
+  
+  /* جدول‌ها راست‌چین بشن */
+  table {
+    direction: rtl;
+  }
+  
+  /* کدها LTR بمونن */
+  code, pre {
+    direction: ltr;
+    text-align: left;
+  }
+  
+  /* fix برای بخش title و description در Home */
+  .home-info {
+    direction: rtl;
+    text-align: right;
+  }
+  
+  /* فونت فارسی Vazir */
+  @font-face {
+    font-family: 'Vazir';
+    src: url('/fonts/Vazir.woff2') format('woff2'),
+         url('/fonts/Vazir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Vazir', sans-serif;
+  }
