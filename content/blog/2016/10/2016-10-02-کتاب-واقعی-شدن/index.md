@@ -1,6 +1,5 @@
 ---
 
-
 title: "درباره یک صفر مهم : ازکتاب واقعی شدن"
 date: "2016-10-02"
 categories: 
@@ -16,8 +15,7 @@ tags:
   - "واقعی-شدن"
 draft: false
 ---
-{{< rawhtml >}}
-پیش نوشت 1: در کتاب واقعی شدن Getting real ([+](https: //www.amazon.com/Getting-Real-Smarter-Successful-Application/dp/0578012812))نویسنده ایده ی جالبی را مطرح میکند([دانلود کتاب](http: //ketabnak.com/book/68419/%D9%88%D8%A7%D9%82%D8%B9%DB%8C-%D8%B4%D8%AF%D9%86)). میگوید ایده ها ضریب هستند و اجرا کردن آن ها خود ارزش عددی دیگری دارد. ارزش واقعی کسب و کار از ضرب شدن این ها در هم بدست می آید. خودتان ببینید (از ترجمه [+](http: //gettingreal.ir/)):
+پیش نوشت 1: در کتاب واقعی شدن Getting real ([+](https://www.amazon.com/Getting-Real-Smarter-Successful-Application/dp/0578012812))نویسنده ایده ی جالبی را مطرح میکند([دانلود کتاب](http://ketabnak.com/book/68419/%D9%88%D8%A7%D9%82%D8%B9%DB%8C-%D8%B4%D8%AF%D9%86)). میگوید ایده ها ضریب هستند و اجرا کردن آن ها خود ارزش عددی دیگری دارد. ارزش واقعی کسب و کار از ضرب شدن این ها در هم بدست می آید. خودتان ببینید (از ترجمه [+](http://gettingreal.ir/)):
 
 \[caption id="attachment\_386" align="aligncenter" width="361"\]![کتاب واقعی شدن](images/getting-real.jpg) واقعی شدن\[/caption\]
 
@@ -37,5 +35,4 @@ draft: false
 
 شاید بخواهید بخوانید:
 
-[درباره‌ی کتاب قوی سیاه: نسیم طالب هشت توصیه برای زندگی بهتر](https: //sadraa.me/%d9%86%d8%b3%db%8c%d9%85-%d8%b7%d8%a7%d9%84%d8%a8-%d9%82%d9%88%db%8c-%d8%b3%db%8c%d8%a7%d9%87/)
-{{< /rawhtml >}}
+[درباره‌ی کتاب قوی سیاه: نسیم طالب هشت توصیه برای زندگی بهتر](https://sadraa.me/%d9%86%d8%b3%db%8c%d9%85-%d8%b7%d8%a7%d9%84%d8%a8-%d9%82%d9%88%db%8c-%d8%b3%db%8c%d8%a7%d9%87/)

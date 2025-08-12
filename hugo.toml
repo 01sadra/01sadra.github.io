@@ -77,6 +77,22 @@ summaryLength = 0
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+      hardWraps = false
+      xhtml = false
+    [markup.goldmark.extensions]
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = false
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      wrapStandAloneImageWithinParagraph = false
+      autoHeadingIDType = "github"
+  [markup.tableOfContents]
+    endLevel = 6
+    startLevel = 2
 
 [frontmatter]
   summary = [""]

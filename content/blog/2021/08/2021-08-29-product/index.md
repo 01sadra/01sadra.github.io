@@ -1,6 +1,5 @@
 ---
 
-
 title: "راهنمای ورود به مسیرشغلی مدیریت محصول، حتی اگر دانشگاه نرفتید"
 date: "2021-08-29T09:20:00+04:30"
 categories: 
@@ -9,12 +8,11 @@ tags:
   - "مدیرمحصول"
 draft: false
 ---
-{{< rawhtml >}}
 تق تق: )) 
 
-سلام، من رو یادتون میاد؟ میخوام هر از چندگاهی دوباره بنویسم. کجا بودم؟ درگیر [کارم توی کافه بازار](https: //www.linkedin.com/in/01sadra/). 
+سلام، من رو یادتون میاد؟ میخوام هر از چندگاهی دوباره بنویسم. کجا بودم؟ درگیر [کارم توی کافه بازار](https://www.linkedin.com/in/01sadra/). 
 
-![](https: //lh3.googleusercontent.com/eFxZf0vJys1HhKyY80Zhb4J4v9gOQCKkWhfS_ndyYD-pRLbrhSgBCaU1Qc6Fm4OvNznMTFPic_GRkyTrKHgOavJHmRfLkvfcurIUvcB5bgCHfVjRZGxwG0wCLj-_7sC2L1d499WX=s0)
+![](https://lh3.googleusercontent.com/eFxZf0vJys1HhKyY80Zhb4J4v9gOQCKkWhfS_ndyYD-pRLbrhSgBCaU1Qc6Fm4OvNznMTFPic_GRkyTrKHgOavJHmRfLkvfcurIUvcB5bgCHfVjRZGxwG0wCLj-_7sC2L1d499WX=s0)
 
 اوضاع خیلی تغییر کرده در یک سال و نیم گذشته و ترجیح میدم آروم آروم براتون تعریف کنم. فعلا بریم سراغ موضوعی که چند وقتیه میخوام در موردش بنویسم و امروز بالاخره فرصتش پیش اومد.
 
@@ -42,7 +40,7 @@ draft: false
 
 اینو بذارید کنار این که از همون ۱۸ سالگی که فهمیدم صنعت تکنولوژی رو، آرزوم بود که کافه بازار کار کنم.
 
-بعد این که فهمیدم مدیرمحصول چیه، صفحه [فرصت های شغلی بازار](https: //careers.cafebazaar.ir/) رو باز کردم، دیدم نوشته پروداکت منیجر میخواد. فکر میکنید اپلای کردم؟ نه نه. اشتباه میکنید. یکسال طول کشید تا جراتش رو پیدا کردم. ولی در نهایت امروز از تصمیمی که برای تغییر مسیرشغلیم گرفتم راضی ام. 
+بعد این که فهمیدم مدیرمحصول چیه، صفحه [فرصت های شغلی بازار](https://careers.cafebazaar.ir/) رو باز کردم، دیدم نوشته پروداکت منیجر میخواد. فکر میکنید اپلای کردم؟ نه نه. اشتباه میکنید. یکسال طول کشید تا جراتش رو پیدا کردم. ولی در نهایت امروز از تصمیمی که برای تغییر مسیرشغلیم گرفتم راضی ام. 
 
 حالا سوالی که امروز پیش میاد اینه:
 
@@ -54,13 +52,13 @@ draft: false
 
 چک کنید ببینید اصلا چنین کاری علاقه تون هست؟ با توانمندی هاتون همسوئه؟
 
-خب این کار سختیه که ببینید چی میخواد از زندگی. میدونم، همه درگیرشن و اگر کسی بتونه این مشکل رو حل کنه میلیونر میشه. ولی فعلا بیایید مسئله رو کوچیک کنیم و ببینیم ایا کسی با ویژگی های شخصیتی شما تو این نقش خوشحال خواهد بود؟ چطوری؟ تست [mbti](https: //www.16personalities.com/) بدید.
+خب این کار سختیه که ببینید چی میخواد از زندگی. میدونم، همه درگیرشن و اگر کسی بتونه این مشکل رو حل کنه میلیونر میشه. ولی فعلا بیایید مسئله رو کوچیک کنیم و ببینیم ایا کسی با ویژگی های شخصیتی شما تو این نقش خوشحال خواهد بود؟ چطوری؟ تست [mbti](https://www.16personalities.com/) بدید.
 
 (آره آره میدونم اصلا علمی نیست -علمی چی هست؟- و نباید اینجوری قضاوت کرد در مورد آدمها، ولی به هر حال به نظرم یکی از بهترین تلاش ها در راستای دسته بندی ادم‌ها در دسته های معناداره و در لحظه مدل بهتری نمیشناسم)
 
-![](https: //lh5.googleusercontent.com/a4HKrXNehRw-8YGSMieQUrBaGTfAmRJQUVlhVWbM4S5wKyqK_KOIampEOjFO0_sf2a5GmxkWAd7Nyq4Cavm2mmrUjWtyVogfab6eu-tuAN4MYnTRNYTpzzCBgtkIhjYVVhDwZOZx=s0)
+![](https://lh5.googleusercontent.com/a4HKrXNehRw-8YGSMieQUrBaGTfAmRJQUVlhVWbM4S5wKyqK_KOIampEOjFO0_sf2a5GmxkWAd7Nyq4Cavm2mmrUjWtyVogfab6eu-tuAN4MYnTRNYTpzzCBgtkIhjYVVhDwZOZx=s0)
 
-تو یکی از محدو[د پرسشنامه هایی که در این زمینه بین پروداکت منیجرها](https: //www.linkedin.com/pulse/product-managers-personality-types-tatu-lund/) اجرا شده، این توزیع هر کدوم از ویژگی ها چارگانه س. بهترین تایپ شخصیتی برای این نقش همونطور که میشه حدس زد، میشه:
+تو یکی از محدو[د پرسشنامه هایی که در این زمینه بین پروداکت منیجرها](https://www.linkedin.com/pulse/product-managers-personality-types-tatu-lund/) اجرا شده، این توزیع هر کدوم از ویژگی ها چارگانه س. بهترین تایپ شخصیتی برای این نقش همونطور که میشه حدس زد، میشه:
 
 ENTJ 
 
@@ -98,13 +96,13 @@ ENTJ 
 
 با انجام دادن این کارهاست که یاد میگیرید مدیرمحصول بشید، نه دیدن کورس دانشگاه دوغوزآباد کندا در مورد مدیریت محصول در کورس ارا.
 
-![](https: //lh4.googleusercontent.com/neFmBfab_bq_XX--QRKiKuU2kCXbYTOt890UvBtOktb8sY-ybzoI4FvNBs8Zz4P_aiP4CvoAyFgN8JUcmmybyhCLBdtf8_PEi1XohOEoCv5po1NRXajbTX6y8JBkiIMAvkzdYBWD=s0)
+![](https://lh4.googleusercontent.com/neFmBfab_bq_XX--QRKiKuU2kCXbYTOt890UvBtOktb8sY-ybzoI4FvNBs8Zz4P_aiP4CvoAyFgN8JUcmmybyhCLBdtf8_PEi1XohOEoCv5po1NRXajbTX6y8JBkiIMAvkzdYBWD=s0)
 
 حین این که سعی میکنید این کارا رو بکنید، در کنارش مطالعه جدی کنید. 
 
-[لین استارت اپ](https: //castbox.fm/episode/\(Lean-StartUp\)%DB%8C%DA%A9-%3A-%D8%AE%D9%84%D8%A7%D8%B5%D9%87-%DA%A9%D8%AA%D8%A7%D8%A8-%D9%84%DB%8C%D9%86-%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%AA-%D8%A2%D9%BE-id1992876-id124927987?country=us) رو بخونید برای این که یاد بگیرید مفهوم mvp چیه.
+[لین استارت اپ](https://castbox.fm/episode/\(Lean-StartUp\)%DB%8C%DA%A9-%3A-%D8%AE%D9%84%D8%A7%D8%B5%D9%87-%DA%A9%D8%AA%D8%A7%D8%A8-%D9%84%DB%8C%D9%86-%D8%A7%D8%B3%D8%AA%D8%A7%D8%B1%D8%AA-%D8%A2%D9%BE-id1992876-id124927987?country=us) رو بخونید برای این که یاد بگیرید مفهوم mvp چیه.
 
-[ترکشن](https: //www.amazon.com/Traction-Startup-Guide-Getting-Customers/dp/0976339609) رو بخونید برای این که الفبای مارکتینگ رو یاد بگیرید.
+[ترکشن](https://www.amazon.com/Traction-Startup-Guide-Getting-Customers/dp/0976339609) رو بخونید برای این که الفبای مارکتینگ رو یاد بگیرید.
 
 بلاگ های مربوط به مدیریت محصول رو دنبال کنید(این رو بعدا تو یه پست جدا معرفی میکنم). مدیریت پروژه یاد بگیرید. ساختار اجایل رو یاد بگیرید.
 
@@ -114,13 +112,13 @@ ENTJ 
 
 سعی کنید انسان و فرایندهای تصمیم گیریش رو بفهمید. همدلی رو تو خودتون تقویت کنید.
 
-یه لیست خوب از کتابهایی که برای مدیریت محصول خوبه بخونیم رو توی [گودریدزم](https: //www.goodreads.com/review/list/58308741?shelf=product) اینجا گذاشتم، طبیعتا خودم همش رو نخوندم ولی یه دید خوبی میده تو مسیر یادگرفتن پروداکت به چه چیزهایی نیازه.
+یه لیست خوب از کتابهایی که برای مدیریت محصول خوبه بخونیم رو توی [گودریدزم](https://www.goodreads.com/review/list/58308741?shelf=product) اینجا گذاشتم، طبیعتا خودم همش رو نخوندم ولی یه دید خوبی میده تو مسیر یادگرفتن پروداکت به چه چیزهایی نیازه.
 
 اینم یه نقشه کلی از مهارت های مختلفیه که یه مدیر محصول نیازه یادداشته باشه، خودم درست کردم قطعا کم کسری داره که ببخشید دیگه. هرکدومش رو که سرچ کنید یه دنیاست که میتونید توش عمیق بشید.
 
-![](https: //lh3.googleusercontent.com/JM_mvVJANy656GnQPpSB7NjlPavqKmCEdF62SAxNy0RVmRzv3QDl3fOHP56wZ6weMho-eqklcgXmv7Fyc2LJ2Ou3UqtGvw0Jc7aP_5nCSdWsZxIruYL5XDbnv_JAv6EBsgjn8R9-=s0)
+![](https://lh3.googleusercontent.com/JM_mvVJANy656GnQPpSB7NjlPavqKmCEdF62SAxNy0RVmRzv3QDl3fOHP56wZ6weMho-eqklcgXmv7Fyc2LJ2Ou3UqtGvw0Jc7aP_5nCSdWsZxIruYL5XDbnv_JAv6EBsgjn8R9-=s0)
 
-اینجا هم یه سری [فریم ورک برای پروداکت منیجمنت](https: //www.product-frameworks.com/) هست که خیلی باحاله یه سر بهش بزنید.
+اینجا هم یه سری [فریم ورک برای پروداکت منیجمنت](https://www.product-frameworks.com/) هست که خیلی باحاله یه سر بهش بزنید.
 
 گام سوم:
 
@@ -128,7 +126,7 @@ ENTJ 
 
 اول جابینجا (ممکنه بعضی شرکت ها توش نباشن و سایت شرکت های بزرگ رو جدا چک کنید) رو باز کنید و یکم تو توییتر سرچ کنید و یه لیست از شرکت هایی که در لحظه مدیر محصول میخوان درست کنید.
 
-بعد کتاب [Cracking Pm Interview](https: //www.amazon.com/Cracking-PM-Interview-Product-Technology/dp/0984782818) رو دانلود کنید. فصل اولش در مورد رزومه درست یه مدیرمحصول صحبت کرده. اون فصل رو بخونید و سعی کنید یه رزومه خوب درست کنید. مثلا این [رزومه‌ی خود منه](https: //drive.google.com/file/d/0ByJ_81R5cDAHNWVKOTYtcXAyU0hIbmQzR3lqSVZwMTVrWHhz/view?usp=sharing&resourcekey=0--aCiZ4XqbEukXxWGqaCuSg) وقتی که برای بازار اپلای کردم.
+بعد کتاب [Cracking Pm Interview](https://www.amazon.com/Cracking-PM-Interview-Product-Technology/dp/0984782818) رو دانلود کنید. فصل اولش در مورد رزومه درست یه مدیرمحصول صحبت کرده. اون فصل رو بخونید و سعی کنید یه رزومه خوب درست کنید. مثلا این [رزومه‌ی خود منه](https://drive.google.com/file/d/0ByJ_81R5cDAHNWVKOTYtcXAyU0hIbmQzR3lqSVZwMTVrWHhz/view?usp=sharing&resourcekey=0--aCiZ4XqbEukXxWGqaCuSg) وقتی که برای بازار اپلای کردم.
 
 رزومه تون خودش یه محصوله پس به جزئیاتش دقت کنید. 
 
@@ -146,7 +144,7 @@ ENTJ 
 
  بدترین تجربه های مصاحبه من، اونایی‌ن که برای رزومه شون و بج لینکدین  چیزی یاد میگیرن، به جای این که برای انجام دادن درست کارها مطالعه کنند و یاد بگیرن.
 
-![](https: //lh5.googleusercontent.com/gcWxbeoGYJ9JUfHPak0kXeNOP8v55ErOv9YtT2yFc_D8j1JnAmKH2JJWp6anoV1fiGiGaAoZqdB-AFaAp0swRsLTlw-utRNhMv7nNBFmVbyxhZRX6XRtee1Pz4xrTIMGLWhguV45=s0)
+![](https://lh5.googleusercontent.com/gcWxbeoGYJ9JUfHPak0kXeNOP8v55ErOv9YtT2yFc_D8j1JnAmKH2JJWp6anoV1fiGiGaAoZqdB-AFaAp0swRsLTlw-utRNhMv7nNBFmVbyxhZRX6XRtee1Pz4xrTIMGLWhguV45=s0)
 
  تمرکزتون روی تجربه های واقعی تون باشه، توی رزومه.
 
@@ -154,11 +152,11 @@ ENTJ 
 
  این احتمالا با روزی دو ساعت کار دو هفته ازتون وقت میگیره. 
 
-بعد میتونید کتاب [inspired](https: //www.amazon.com/INSPIRED-Create-Tech-Products-Customers-ebook/dp/B077NRB36N) مارتی کیگن رو بخونید تا با الفبای مدیریت محصول آشنا بشید. به هر حال شما قراره وارد یه شرکت بشید و دیگه استارت آپ خودتون نیست. باید بدونید روزمره یه پی ام چطوری میگذره، واژه های دنیای پروداکت رو بلد باشید و این کتاب خب انجیل دنیای مدیریت محصوله. 
+بعد میتونید کتاب [inspired](https://www.amazon.com/INSPIRED-Create-Tech-Products-Customers-ebook/dp/B077NRB36N) مارتی کیگن رو بخونید تا با الفبای مدیریت محصول آشنا بشید. به هر حال شما قراره وارد یه شرکت بشید و دیگه استارت آپ خودتون نیست. باید بدونید روزمره یه پی ام چطوری میگذره، واژه های دنیای پروداکت رو بلد باشید و این کتاب خب انجیل دنیای مدیریت محصوله. 
 
-(من ترجمه ش کردم اما متاسفانه هنوز چاپ نشده و انگلیسیش رو میتونید بخونید، اگر انگلیسی بلد نیستید هم [پست چطوری زبان انگلیسی یاد بگیریم](https: //sadra.blog/%D8%A8%D9%87%D8%AA%D8%B1%DB%8C%D9%86-%D8%B1%D9%88%D8%B4-%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C-%D8%B2%D8%A8%D8%A7%D9%86-%D8%A7%D9%86%DA%AF%D9%84%DB%8C%D8%B3%DB%8C/%DA%86%DA%AF%D9%88%D9%86%D9%87-%D8%AF%D8%B1-%D8%AE%D8%A7%D9%86%D9%87-%D8%B2%D8%A8%D8%A7%D9%86-%D8%A7%D9%86%DA%AF%D9%84%DB%8C%D8%B3%DB%8C-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1%DB%8C%D9%85/) رو بخونید)
+(من ترجمه ش کردم اما متاسفانه هنوز چاپ نشده و انگلیسیش رو میتونید بخونید، اگر انگلیسی بلد نیستید هم [پست چطوری زبان انگلیسی یاد بگیریم](https://sadra.blog/%D8%A8%D9%87%D8%AA%D8%B1%DB%8C%D9%86-%D8%B1%D9%88%D8%B4-%DB%8C%D8%A7%D8%AF%DA%AF%DB%8C%D8%B1%DB%8C-%D8%B2%D8%A8%D8%A7%D9%86-%D8%A7%D9%86%DA%AF%D9%84%DB%8C%D8%B3%DB%8C/%DA%86%DA%AF%D9%88%D9%86%D9%87-%D8%AF%D8%B1-%D8%AE%D8%A7%D9%86%D9%87-%D8%B2%D8%A8%D8%A7%D9%86-%D8%A7%D9%86%DA%AF%D9%84%DB%8C%D8%B3%DB%8C-%DB%8C%D8%A7%D8%AF-%D8%A8%DA%AF%DB%8C%D8%B1%DB%8C%D9%85/) رو بخونید)
 
-بعد برید سراغ یوتیوب و ویدیو های کانال [tryexponent](https: //www.youtube.com/channel/UCjm_qVkCPjOVDz9BWjNqO9A) رو ببینید. هرچقدرش رو که تونستید. سعی کنید ویدیو ها رو پاز کنید به سوال ها تو ذهنتون پاسخ بدید، بعد پاسخ اون آدم رو بشنوید. خیلی این کار مهمه.
+بعد برید سراغ یوتیوب و ویدیو های کانال [tryexponent](https://www.youtube.com/channel/UCjm_qVkCPjOVDz9BWjNqO9A) رو ببینید. هرچقدرش رو که تونستید. سعی کنید ویدیو ها رو پاز کنید به سوال ها تو ذهنتون پاسخ بدید، بعد پاسخ اون آدم رو بشنوید. خیلی این کار مهمه.
 
 خب الان شما آماده مصاحبه شدید. شروع کنید به رزومه فرستادن. اگر تو هرکدوم از اون شرکت‌ها دوست و اشنایی دارید رزومه تون رو بدید به اون و ازش بخواید که ریفرتون کنه. اینجوری سریعتر پیش میره فرایند ها. 
 
@@ -196,5 +194,4 @@ ENTJ 
 
 اگر کسی رو میشناسید که ممکنه علاقه داشته باشه به مسیر توسعه محصول لطفا این متن رو باهاش به اشتراک بذارید.
 
-اگر این پست کمکتون کرد لطفا [توییت معرفی این پست در توییتر](https: //twitter.com/01sadra/status/1432029025543733248?s=20) رو ریتوییت کنید. این خیلی به ادامه انتشار این مطالب کمک خواهد کرد.
-{{< /rawhtml >}}
+اگر این پست کمکتون کرد لطفا [توییت معرفی این پست در توییتر](https://twitter.com/01sadra/status/1432029025543733248?s=20) رو ریتوییت کنید. این خیلی به ادامه انتشار این مطالب کمک خواهد کرد.
