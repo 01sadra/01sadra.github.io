@@ -52,9 +52,7 @@
         {{- end }}
       </h2>
     </header>
-    {{- if (ne (.Param "hideSummary") true) }}
-      <p class="text-black font-medium text-right">{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-    {{- end }}
+    {{/* Summary section removed */}}
     {{- if not (.Param "hideMeta") }}
     <footer class="entry-footer bg-gray-50 border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
       {{- partial "post_meta.html" . -}}
