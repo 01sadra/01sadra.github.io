@@ -60,12 +60,12 @@ summaryLength = 0
   disableScrollToTop = false
   comments = false
   hidemeta = false
-  hideSummary = false
+  hideSummary = true
   showtoc = false
   tocopen = false
   
   # Persian typography and readability settings
-  ShowPostDescription = true
+  ShowPostDescription = false
   hidePostNavigation = false
 
   [params.cover]
