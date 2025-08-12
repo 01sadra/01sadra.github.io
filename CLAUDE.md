@@ -62,6 +62,38 @@ hugo new blog/YYYY/MM/YYYY-MM-DD-title/index.md
 - `fix_hugo.py` script wraps markdown content in `{{< rawhtml >}}` shortcodes
 - This allows HTML content to be processed properly in Hugo
 
+## GitHub Pages Deployment
+
+### GitHub Actions Workflow
+The site uses GitHub Actions for automated deployment to GitHub Pages. The workflow is defined in `.github/workflows/hugo.yaml` and automatically builds and deploys the site on every push to the main branch.
+
+### Deployment Process
+1. **Create Feature Branch**: Work on changes in feature branches
+2. **Create Pull Request**: Push branch and create PR to main
+3. **Merge to Main**: Once approved, merge PR to main branch
+4. **Automatic Deployment**: GitHub Actions workflow automatically builds and deploys
+
+### GitHub Pages Configuration
+- Navigate to repository Settings → Pages
+- Set source to "GitHub Actions" (not "Deploy from branch")
+- Site deploys to: https://01sadra.github.io/
+
+### Deployment Commands
+```bash
+# Push current branch to GitHub
+git push origin [branch-name]
+
+# Create and switch to new feature branch
+git checkout -b feature/new-feature-name
+
+# After PR approval and merge, pull latest main
+git checkout main
+git pull origin main
+
+# Delete merged feature branch locally
+git branch -d feature/branch-name
+```
+
 ## Special Files
 - `fix_hugo.py`: Python script for content processing (wraps content in rawhtml shortcodes)
 - Persian content throughout with categories and tags in Persian
