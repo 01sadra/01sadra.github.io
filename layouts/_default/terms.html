@@ -1,7 +1,7 @@
 {{- define "main" }}
 
 {{/* Neobrutalism terms page container */}}
-<div class="min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 p-4">
+<div class="min-h-screen bg-gray-50 p-4">
   <div class="max-w-6xl mx-auto">
     
     {{/* Page header */}}
@@ -59,7 +59,7 @@
         {{- with site.GetPage (printf "/%s/%s" $type $name) }}
         <div class="term-item group">
           <a href="{{ .Permalink }}" class="block">
-            {{- $colorClasses := slice "bg-yellow-200" "bg-blue-200" "bg-green-200" "bg-pink-200" "bg-purple-200" "bg-cyan-200" "bg-red-200" "bg-orange-200" }}
+            {{- $colorClasses := slice "bg-white" "bg-gray-100" "bg-blue-100" "bg-gray-50" }}
             {{- $randomColor := index $colorClasses (mod (len $name) (len $colorClasses)) }}
             
             {{/* Size based on count */}}
@@ -118,7 +118,7 @@
       
       {{/* Summary stats */}}
       <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-cyan-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+        <div class="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
           <div class="text-3xl font-black text-black text-center mb-2">{{ len $terms }}</div>
           <div class="text-lg font-bold text-black text-center">
             {{- if eq .Type "categories" -}}
@@ -129,12 +129,12 @@
           </div>
         </div>
         
-        <div class="bg-yellow-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+        <div class="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
           <div class="text-3xl font-black text-black text-center mb-2">{{ $maxCount }}</div>
           <div class="text-lg font-bold text-black text-center">بیشترین تعداد نوشته</div>
         </div>
         
-        <div class="bg-green-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+        <div class="bg-white border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
           <div class="text-3xl font-black text-black text-center mb-2">
             {{- $totalPosts := 0 }}
             {{- range $terms }}{{ $totalPosts = add $totalPosts .Count }}{{ end }}
@@ -146,7 +146,7 @@
       
       {{- else }}
       {{/* No terms found */}}
-      <div class="bg-pink-200 border-4 border-black p-8 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-2">
+      <div class="bg-gray-100 border-4 border-black p-8 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-2">
         <h2 class="text-3xl font-black text-black mb-4">هیچ موضوعی پیدا نشد!</h2>
         <p class="text-lg font-bold text-black mb-6">
           {{- if eq .Type "categories" -}}
@@ -156,7 +156,7 @@
           {{- end -}}
         </p>
         <a href="{{ "/" | absLangURL }}" 
-           class="bg-blue-300 border-4 border-black px-8 py-4 font-black text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 inline-block">
+           class="bg-blue-500 border-4 border-black px-8 py-4 font-black text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 inline-block">
           بازگشت به صفحه اصلی
         </a>
       </div>
