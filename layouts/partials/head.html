@@ -1,0 +1,42 @@
+{{- /* Meta Tags */}}
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+{{- /* Title */}}
+{{- if eq .RelPermalink "/" }}
+<title>{{ .Site.Title }}</title>
+{{- else }}
+<title>{{ .Title }} | {{ .Site.Title }}</title>
+{{- end }}
+
+{{- /* Description */}}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ if or .IsPage .IsSection }}{{ .Summary | default (printf "%s - %s" .Title .Site.Title) }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+<meta name="author" content="{{ .Site.Params.author }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- /* Language */}}
+<meta name="language" content="{{ .Site.LanguageCode }}">
+
+{{- /* RTL CSS */}}
+<link rel="stylesheet" href="/css/rtl.css">
+
+{{- /* Tailwind CSS for minimal styling */}}
+<script src="https://cdn.tailwindcss.com"></script>
+
+{{- /* Favicon */}}
+{{- with .Site.Params.assets.favicon }}
+<link rel="icon" href="{{ . | absURL }}">
+{{- end }}
+
+{{- /* RSS */}}
+{{- range .AlternativeOutputFormats -}}
+    <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}" title="{{ $.Site.Title }}">
+{{- end }}
+
+{{- /* Custom head */}}
+{{- if .Site.Params.assets.customCSS }}
+{{- range .Site.Params.assets.customCSS }}
+<link rel="stylesheet" href="{{ . | absURL }}">
+{{- end }}
+{{- end }}

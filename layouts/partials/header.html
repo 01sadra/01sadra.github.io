@@ -1,0 +1,164 @@
+{{- /* Include original PaperMod theme scripts */}}
+{{- /* theme-toggle is enabled */}}
+{{- if (not site.Params.disableThemeToggle) }}
+{{- /* theme is light */}}
+{{- if (eq site.Params.defaultTheme "light") }}
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    }
+</script>
+{{- /* theme is dark */}}
+{{- else if (eq site.Params.defaultTheme "dark") }}
+<script>
+    if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    }
+</script>
+{{- else }}
+{{- /* theme is auto */}}
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+{{- end }}
+{{- /* theme-toggle is disabled and theme is auto */}}
+{{- else if (and (ne site.Params.defaultTheme "light") (ne site.Params.defaultTheme "dark"))}}
+<script>
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+</script>
+{{- end }}
+
+{{/* Neobrutalism Header */}}
+<header class="header bg-white border-b-8 border-black sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    <nav class="nav py-4">
+      <div class="flex items-center justify-between">
+        
+        {{/* Bold Logo/Site Title */}}
+        <div class="logo">
+          <a href="{{ "/" | absLangURL }}" 
+             accesskey="h" 
+             title="وبلاگ شخصی صدرا علی‌آبادی (Alt + H)"
+             aria-label="بازگشت به صفحه اصلی وبلاگ"
+             class="text-lg md:text-2xl lg:text-3xl font-black text-black hover:text-white hover:bg-black focus:text-white focus:bg-black focus:outline-none focus:ring-4 focus:ring-blue-300 px-2 md:px-4 py-2 border-4 border-black transition-all transform hover:scale-105 focus:scale-105 text-right shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+            وبلاگ شخصی صدرا علی‌آبادی
+          </a>
+        </div>
+
+        {{/* Mobile Hamburger Button */}}
+        <button id="mobile-menu-button" 
+                class="md:hidden bg-blue-500 text-white font-bold px-3 py-2 border-4 border-black hover:bg-blue-600 transition-all transform hover:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                aria-label="باز کردن منوی ناوبری">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        {{/* Desktop Navigation Menu */}}
+        <div class="menu hidden md:flex gap-2 lg:gap-4 text-right">
+          {{- range .Site.Menus.main }}
+          <a href="{{ .URL | absLangURL }}" 
+             title="{{ .Name }}"
+             aria-label="رفتن به صفحه {{ .Name }}"
+             class="bg-blue-500 text-white font-bold px-2 lg:px-4 py-2 border-4 border-black hover:bg-blue-600 hover:text-white focus:bg-blue-600 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all transform hover:scale-105 focus:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-sm lg:text-base">
+            {{ .Name }}
+          </a>
+          {{- end }}
+          
+          {{/* Search Button if enabled */}}
+          {{- if (isset .Site.Params "fuseOpts") }}
+          <a href="{{ "search" | absLangURL }}" 
+             title="جستجو (Alt + /)" 
+             accesskey="/"
+             aria-label="جستجو در وبلاگ (Alt + /)"
+             class="bg-blue-500 text-white font-bold px-2 lg:px-4 py-2 border-4 border-black hover:bg-blue-600 hover:text-white focus:bg-blue-600 focus:text-white focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all transform hover:scale-105 focus:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-sm lg:text-base">
+            جستجو
+          </a>
+          {{- end }}
+        </div>
+        
+      </div>
+    </nav>
+    
+    {{/* Mobile Menu - Hidden by default */}}
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t-4 border-black">
+      <nav class="px-4 py-4 space-y-2">
+        {{- range .Site.Menus.main }}
+        <a href="{{ .URL | absLangURL }}" 
+           title="{{ .Name }}"
+           aria-label="رفتن به صفحه {{ .Name }}"
+           class="block bg-blue-500 text-white font-bold px-4 py-3 border-4 border-black hover:bg-blue-600 transition-all transform hover:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center">
+          {{ .Name }}
+        </a>
+        {{- end }}
+        
+        {{/* Search Button if enabled */}}
+        {{- if (isset .Site.Params "fuseOpts") }}
+        <a href="{{ "search" | absLangURL }}" 
+           title="جستجو (Alt + /)" 
+           accesskey="/"
+           aria-label="جستجو در وبلاگ (Alt + /)"
+           class="block bg-blue-500 text-white font-bold px-4 py-3 border-4 border-black hover:bg-blue-600 transition-all transform hover:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] text-center">
+          جستجو
+        </a>
+        {{- end }}
+      </nav>
+    </div>
+  </div>
+</header>
+
+{{/* Mobile Menu JavaScript */}}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      
+      // Update button aria-label
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenuButton.setAttribute('aria-label', isOpen ? 'بستن منوی ناوبری' : 'باز کردن منوی ناوبری');
+      
+      // Update button icon
+      const svg = mobileMenuButton.querySelector('svg path');
+      if (isOpen) {
+        // Change to X icon
+        svg.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      } else {
+        // Change back to hamburger
+        svg.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!mobileMenuButton.contains(event.target) && !mobileMenu.contains(event.target)) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.setAttribute('aria-label', 'باز کردن منوی ناوبری');
+        const svg = mobileMenuButton.querySelector('svg path');
+        svg.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+    
+    // Close mobile menu when pressing Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.setAttribute('aria-label', 'باز کردن منوی ناوبری');
+        const svg = mobileMenuButton.querySelector('svg path');
+        svg.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+  }
+});
+</script>

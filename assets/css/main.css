@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* Custom RTL styles for Persian content */
+html[dir="rtl"] {
+  text-align: right;
+}
+
+/* Preserve Vazir font for Persian text */
+body {
+  font-family: 'Vazir', 'Tahoma', 'Arial', sans-serif;
+}
+
+/* Neobrutalism base styles with RTL support */
+.brutal-container {
+  @apply font-farsi;
+}
+
+/* Custom styles to prevent conflicts with PaperMod */
+.post-entry,
+.first-entry {
+  /* Ensure neobrutalism styles don't break existing layouts */
+  position: relative;
+}
+
+/* Make sure Persian text displays correctly with neobrutalism components */
+.btn-brutal,
+.card-brutal,
+.nav-brutal {
+  @apply font-farsi;
+  text-align: inherit;
+}
+
+/* RTL-specific adjustments for neobrutalism components */
+html[dir="rtl"] .btn-brutal {
+  text-align: right;
+}
+
+html[dir="rtl"] .card-brutal {
+  text-align: right;
+}
+
+/* Preserve existing PaperMod spacing and layout */
+.main {
+  @apply container mx-auto;
+}

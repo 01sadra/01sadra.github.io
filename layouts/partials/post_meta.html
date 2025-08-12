@@ -1,0 +1,60 @@
+{{/* Minimal clean post meta */}}
+<div class="post-meta flex flex-wrap items-center justify-end gap-4 text-sm text-gray-600" dir="rtl">
+  
+  {{/* Publication date with Persian formatting */}}
+  {{- if not (.Param "hideMeta") }}
+  <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" 
+        class="post-date text-blue-600 hover:text-blue-800 transition-colors">
+    📅 {{ .Date.Day }} {{ index (slice "فروردین" "اردیبهشت" "خرداد" "تیر" "مرداد" "شهریور" "مهر" "آبان" "آذر" "دی" "بهمن" "اسفند") (sub .Date.Month 1) }} {{ sub .Date.Year 621 }}
+  </time>
+  {{- end }}
+  
+  {{/* Time display */}}
+  {{- if not (.Param "hideTime") }}
+  <span class="post-time text-purple-600">
+    ⏰ {{ .Date.Format "15:04" }}
+  </span>
+  {{- end }}
+  
+  {{/* Reading time */}}
+  {{- if and (not (.Param "hideReadingTime")) (.Param "ShowReadingTime") }}
+  {{- if gt .ReadingTime 0 }}
+  <span class="reading-time text-gray-500">
+    📚 {{ .ReadingTime }} دقیقه مطالعه
+  </span>
+  {{- end }}
+  {{- end }}
+  
+  {{/* Word count */}}
+  {{- if and (not (.Param "hideWordCount")) (.Param "ShowWordCount") }}
+  {{- if gt .WordCount 0 }}
+  <span class="word-count text-gray-500">
+    📝 {{ .WordCount }} کلمه
+  </span>
+  {{- end }}
+  {{- end }}
+  
+  {{/* Author */}}
+  {{- if and (.Param "ShowAuthor") (.Params.author) }}
+  <span class="post-author text-gray-700">
+    ✍️ {{ .Params.author }}
+  </span>
+  {{- end }}
+  
+  {{/* Update date (if different from publish date) */}}
+  {{- if and (.Param "ShowLastMod") (ne .Date .Lastmod) }}
+  <time datetime="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}" 
+        class="post-lastmod text-green-600 hover:text-green-800 transition-colors" 
+        title="آخرین ویرایش">
+    🔄 ویرایش: {{ .Lastmod.Day }} {{ index (slice "فروردین" "اردیبهشت" "خرداد" "تیر" "مرداد" "شهریور" "مهر" "آبان" "آذر" "دی" "بهمن" "اسفند") (sub .Lastmod.Month 1) }} {{ sub .Lastmod.Year 621 }}
+  </time>
+  {{- end }}
+  
+  {{/* Draft indicator */}}
+  {{- if .Draft }}
+  <span class="draft-indicator bg-red-100 text-red-800 px-2 py-1 rounded text-xs font-medium">
+    ⚠️ پیش‌نویس
+  </span>
+  {{- end }}
+  
+</div>

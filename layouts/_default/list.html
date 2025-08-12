@@ -1,0 +1,203 @@
+{{- define "main" }}
+
+{{/* Minimal clean list page container */}}
+<div class="min-h-screen bg-white">
+  <div class="max-w-4xl mx-auto px-6 py-8">
+
+{{- if (and site.Params.profileMode.enabled .IsHome) }}
+{{- partial "index_profile.html" . }}
+{{- else }} {{/* if not profileMode */}}
+
+{{/* Clean page header */}}
+{{- if not .IsHome | and .Title }}
+<header class="page-header mb-12">
+  <div class="border-b border-gray-200 pb-6">
+    {{- partial "breadcrumbs.html" . }}
+    <h1 class="text-4xl font-bold text-gray-900 text-right mb-4" style="line-height: 1.4em;">
+      {{ .Title }}
+      {{- if and (or (eq .Kind `term`) (eq .Kind `section`)) (.Param "ShowRssButtonInSectionTermList") }}
+      {{- with .OutputFormats.Get "rss" }}
+      <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS" 
+         class="inline-block ml-3 text-sm bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700 transition-colors">
+        RSS
+      </a>
+      {{- end }}
+      {{- end }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+      <p class="text-lg text-gray-600 text-right" style="line-height: 1.75em;">{{ .Description | markdownify }}</p>
+    </div>
+    {{- end }}
+  </div>
+</header>
+{{- end }}
+
+{{/* Content section */}}
+{{- if .Content }}
+<div class="prose prose-lg max-w-none mb-12 text-right" style="font-size: 16px; line-height: 1.75em;">
+  {{- if not (.Param "disableAnchoredHeadings") }}
+  {{- partial "anchored_headings.html" .Content -}}
+  {{- else }}{{ .Content }}{{ end }}
+</div>
+{{- end }}
+
+{{/* Posts/Pages listing - clean minimal cards */}}
+{{- $pages := union .RegularPages .Sections }}
+
+{{- if .IsHome }}
+{{- $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{- $pages = where $pages "Params.hiddenInHomeList" "!=" "true"  }}
+
+{{/* Homepage specific header */}}
+<header class="page-header mb-12">
+  <div class="border-b border-gray-200 pb-6">
+    <h1 class="text-4xl font-bold text-gray-900 text-right mb-4" style="line-height: 1.4em;">
+      همه نوشته‌ها
+    </h1>
+    <div class="post-description">
+      <p class="text-lg text-gray-600 text-right" style="line-height: 1.75em;">فهرست کامل نوشته‌ها بر اساس تاریخ انتشار</p>
+    </div>
+  </div>
+</header>
+{{- end }}
+
+{{/* Show ALL posts without pagination */}}
+{{- if .IsHome }}
+{{/* No pagination on homepage - show all posts */}}
+{{- else }}
+{{- $paginator := .Paginate $pages }}
+{{- $pages = $paginator.Pages }}
+{{- end }}
+
+{{- if and .IsHome site.Params.homeInfoParams }}
+{{- partial "home_info.html" . }}
+{{- end }}
+
+{{/* Posts list - clean minimal design */}}
+{{- if $pages }}
+<div class="posts-list space-y-8">
+  {{- range $index, $page := $pages }}
+  
+  <article class="post-entry bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md hover:border-blue-300 transition-all duration-200">
+    {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
+    {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+    
+    <header class="entry-header mb-4">
+      <h2 class="text-2xl font-bold text-gray-900 text-right mb-3 hover:text-blue-600" style="line-height: 1.4em; max-width: 65ch;">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{- if .Draft }}
+        <span class="inline-block ml-2 bg-red-100 text-red-800 text-sm px-2 py-1 rounded" title="Draft">
+          پیش‌نویس
+        </span>
+        {{- end }}
+      </h2>
+      
+      {{/* Time display with Persian formatting */}}
+      <div class="entry-time text-sm text-gray-500 text-right mb-2" dir="rtl">
+        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="text-blue-600">
+          📅 {{ .Date.Day }} {{ index (slice "فروردین" "اردیبهشت" "خرداد" "تیر" "مرداد" "شهریور" "مهر" "آبان" "آذر" "دی" "بهمن" "اسفند") (sub .Date.Month 1) }} {{ sub .Date.Year 621 }}
+          - ⏰ {{ .Date.Format "15:04" }}
+        </time>
+        {{/* Reading time and word count */}}
+        {{- if gt .ReadingTime 0 }}
+        <span class="mr-4">📚 {{ .ReadingTime }} دقیقه مطالعه</span>
+        {{- end }}
+        {{- if gt .WordCount 0 }}
+        <span class="mr-4">📝 {{ .WordCount }} کلمه</span>
+        {{- end }}
+      </div>
+    </header>
+    
+    {{- if (ne (.Param "hideSummary") true) }}
+    <div class="entry-content mb-4">
+      <p class="text-right text-gray-700" style="line-height: 1.75em; max-width: 65ch;">{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    </div>
+    {{- end }}
+    
+    {{/* Categories and tags with minimal design */}}
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer border-t border-gray-100 pt-4 mt-4">
+      <div class="flex flex-wrap gap-2 justify-end text-sm">
+        {{- $categories := .GetTerms "categories" }}
+        {{- if $categories }}
+        {{- range first 2 $categories }}
+        <a href="{{ .Permalink }}" 
+           class="inline-block bg-purple-100 text-purple-800 px-2 py-1 rounded hover:bg-purple-200 transition-colors">
+          📁 {{ .Name }}
+        </a>
+        {{- end }}
+        {{- end }}
+        
+        {{- $tags := .GetTerms "tags" }}
+        {{- if $tags }}
+        {{- range first 3 $tags }}
+        <a href="{{ .Permalink }}" 
+           class="inline-block bg-blue-100 text-blue-800 px-2 py-1 rounded hover:bg-blue-200 transition-colors">
+          🏷️ {{ .Name }}
+        </a>
+        {{- end }}
+        {{- end }}
+      </div>
+    </footer>
+    {{- end }}
+    
+    <a class="absolute inset-0 z-10" aria-label="link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
+  </article>
+  {{- end }}
+</div>
+{{- else }}
+{{/* No posts found message */}}
+<div class="text-center py-16">
+  <div class="bg-gray-50 border border-gray-200 rounded-lg p-8 max-w-lg mx-auto">
+    <h2 class="text-2xl font-bold text-gray-900 mb-4">هیچ نوشته‌ای پیدا نشد!</h2>
+    <p class="text-gray-600 mb-6" style="line-height: 1.75em;">متأسفانه در این بخش هنوز محتوایی منتشر نشده است.</p>
+    <a href="{{ "/" | absLangURL }}" 
+       class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors">
+      بازگشت به صفحه اصلی
+    </a>
+  </div>
+</div>
+{{- end }}
+
+{{/* Pagination only for non-home pages */}}
+{{- if not .IsHome }}
+{{- $pag := .Paginate $pages }}
+{{- if gt $pag.TotalPages 1 }}
+<footer class="page-footer mt-12 pt-8 border-t border-gray-200">
+  <nav class="pagination flex justify-center gap-4">
+    {{- if $pag.HasPrev }}
+    <a class="prev bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors" href="{{ $pag.Prev.URL | absURL }}">
+      « صفحه قبل
+      {{- if (.Param "ShowPageNums") }}
+      {{- sub $pag.PageNumber 1 }}/{{ $pag.TotalPages }}
+      {{- end }}
+    </a>
+    {{- end }}
+    
+    {{/* Page numbers */}}
+    {{- if (.Param "ShowPageNums") }}
+    <span class="current-page bg-gray-100 text-gray-900 px-6 py-3 rounded">
+      {{ $pag.PageNumber }} از {{ $pag.TotalPages }}
+    </span>
+    {{- end }}
+    
+    {{- if $pag.HasNext }}
+    <a class="next bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition-colors" href="{{ $pag.Next.URL | absURL }}">
+      صفحه بعد
+      {{- if (.Param "ShowPageNums") }}
+      {{- add 1 $pag.PageNumber }}/{{ $pag.TotalPages }}
+      {{- end }} »
+    </a>
+    {{- end }}
+  </nav>
+</footer>
+{{- end }}
+{{- end }}
+
+{{- end }}{{/* end profileMode */}}
+
+  </div>{{/* end max-w-4xl container */}}
+</div>{{/* end minimal container */}}
+
+{{- end }}{{- /* end main */ -}}
