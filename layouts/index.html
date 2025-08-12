@@ -1,15 +1,17 @@
 {{- define "main" }}
 
+{{/* Neobrutalism Container */}}
+<div class="bg-orange-100 min-h-screen">
+  <div class="max-w-6xl mx-auto px-6 py-8">
+
 {{- if (and site.Params.profileMode.enabled .IsHome) }}
 {{- partial "index_profile.html" . }}
 {{- else }} {{/* if not profileMode */}}
 
 {{- if .Content }}
-<div class="post-content">
   {{- if not (.Param "disableAnchoredHeadings") }}
   {{- partial "anchored_headings.html" .Content -}}
   {{- else }}{{ .Content }}{{ end }}
-</div>
 {{- end }}
 
 {{- /* Get ALL regular pages from the site and sort them by date (newest first) */ -}}
@@ -23,12 +25,12 @@
 {{- partial "home_info.html" . }}
 {{- end }}
 
-{{- /* Custom header for chronological list */ -}}
+{{- /* Neobrutalism header for chronological list */ -}}
 {{- if eq $paginator.PageNumber 1 }}
-<header class="page-header">
-  <h1>همه نوشته‌ها</h1>
+<header class="page-header bg-orange-300 border-4 border-black p-8 mb-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+  <h1 class="text-5xl font-black text-black text-right mb-4 transform -rotate-1">همه نوشته‌ها</h1>
   <div class="post-description">
-    <p>فهرست کامل نوشته‌ها بر اساس تاریخ انتشار</p>
+    <p class="text-xl font-bold text-black text-right bg-yellow-200 border-2 border-black p-4 inline-block transform rotate-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">فهرست کامل نوشته‌ها بر اساس تاریخ انتشار</p>
   </div>
 </header>
 {{- end }}
@@ -45,41 +47,37 @@
 {{- $class = "post-entry tag-entry" }}
 {{- end }}
 
-<article class="{{ $class }}">
-  {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
-  {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-      {{- .Title }}
-      {{- if .Draft }}
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-      {{- end }}
-    </h2>
-  </header>
-  {{- if (ne (.Param "hideSummary") true) }}
-  <div class="entry-content">
-    <p>{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
-  </div>
-  {{- end }}
-  {{- if not (.Param "hideMeta") }}
-  <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
-  </footer>
-  {{- end }}
-  <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
-</article>
+<a href="{{ .Permalink }}" class="block hover:no-underline" aria-label="مطالعه: {{ .Title | plainify }}">
+  <article class="{{ $class }} bg-yellow-200 border-4 border-black p-6 mb-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-all transform hover:rotate-[-1deg] cursor-pointer">
+    {{- $isHidden := (.Param "cover.hiddenInList") | default (.Param "cover.hidden") | default false }}
+    {{- partial "cover.html" (dict "cxt" . "IsSingle" false "isHidden" $isHidden) }}
+    <header class="entry-header">
+      <h2 class="entry-hint-parent text-2xl font-black text-white text-right mb-4 bg-black hover:bg-blue-600 p-3 inline-block transform rotate-1 shadow-[4px_4px_0px_0px_rgba(255,255,0,1)] transition-all">
+        {{- .Title }}
+        {{- if .Draft }}
+        <span class="entry-hint bg-red-300 text-black px-2 py-1 text-sm inline-block ml-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" title="Draft">
+          پیش‌نویس
+        </span>
+        {{- end }}
+      </h2>
+    </header>
+    {{- if (ne (.Param "hideSummary") true) }}
+      <p class="text-black font-medium text-right">{{ .Summary | plainify | htmlUnescape }}{{ if .Truncated }}...{{ end }}</p>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <footer class="entry-footer bg-white border-2 border-black p-3 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+      {{- partial "post_meta.html" . -}}
+    </footer>
+    {{- end }}
+  </article>
+</a>
 {{- end }}
 
 {{- if gt $paginator.TotalPages 1 }}
-<footer class="page-footer">
-  <nav class="pagination">
+<footer class="page-footer mt-8">
+  <nav class="pagination flex justify-center gap-6">
     {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL | absURL }}">
+    <a class="prev bg-blue-300 border-4 border-black px-8 py-4 font-black text-black hover:bg-red-300 hover:text-white transition-all transform hover:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" href="{{ $paginator.Prev.URL | absURL }}">
       «&nbsp;{{ i18n "prev_page" }}&nbsp;
       {{- if (.Param "ShowPageNums") }}
       {{- sub $paginator.PageNumber 1 }}/{{ $paginator.TotalPages }}
@@ -87,7 +85,7 @@
     </a>
     {{- end }}
     {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL | absURL }}">
+    <a class="next bg-green-300 border-4 border-black px-8 py-4 font-black text-black hover:bg-purple-300 hover:text-white transition-all transform hover:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]" href="{{ $paginator.Next.URL | absURL }}">
       {{- i18n "next_page" }}&nbsp;
       {{- if (.Param "ShowPageNums") }}
       {{- add 1 $paginator.PageNumber }}/{{ $paginator.TotalPages }}
@@ -99,5 +97,8 @@
 {{- end }}
 
 {{- end }}{{/* end profileMode */}}
+
+  </div>{{/* end max-w-6xl container */}}
+</div>{{/* end neobrutalism container */}}
 
 {{- end }}{{- /* end main */ -}}

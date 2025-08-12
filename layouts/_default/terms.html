@@ -1,0 +1,169 @@
+{{- define "main" }}
+
+{{/* Neobrutalism terms page container */}}
+<div class="min-h-screen bg-gradient-to-br from-orange-100 to-pink-100 p-4">
+  <div class="max-w-6xl mx-auto">
+    
+    {{/* Page header */}}
+    {{- if .Title }}
+    <header class="page-header mb-8">
+      <div class="bg-black text-white border-4 border-black p-8 mb-6 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+        <h1 class="text-5xl font-black text-right mb-4">
+          {{- if eq .Type "categories" -}}
+            📁 {{ .Title }}
+          {{- else if eq .Type "tags" -}}
+            🏷️ {{ .Title }}
+          {{- else -}}
+            {{ .Title }}
+          {{- end -}}
+        </h1>
+        {{- if .Description }}
+        <div class="post-description">
+          <p class="text-xl font-bold text-right">{{ .Description }}</p>
+        </div>
+        {{- else }}
+        <p class="text-lg font-bold text-right opacity-90">
+          {{- if eq .Type "categories" -}}
+            تمام دسته‌بندی‌های این وبلاگ
+          {{- else if eq .Type "tags" -}}
+            تمام برچسب‌های این وبلاگ
+          {{- else -}}
+            فهرست کامل موضوعات
+          {{- end -}}
+        </p>
+        {{- end }}
+      </div>
+    </header>
+    {{- end }}
+    
+    {{/* Terms cloud with neobrutalism design */}}
+    <div class="terms-cloud">
+      {{- $type := .Type }}
+      {{- $terms := .Data.Terms.Alphabetical }}
+      {{- $maxCount := 0 }}
+      
+      {{/* Find maximum count for sizing */}}
+      {{- range $terms }}
+        {{- if gt .Count $maxCount }}
+          {{- $maxCount = .Count }}
+        {{- end }}
+      {{- end }}
+      
+      {{- if $terms }}
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {{- range $key, $value := $terms }}
+        {{- $name := .Name }}
+        {{- $count := .Count }}
+        {{- $percentage := div (mul .Count 100) $maxCount }}
+        
+        {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+        <div class="term-item group">
+          <a href="{{ .Permalink }}" class="block">
+            {{- $colorClasses := slice "bg-yellow-200" "bg-blue-200" "bg-green-200" "bg-pink-200" "bg-purple-200" "bg-cyan-200" "bg-red-200" "bg-orange-200" }}
+            {{- $randomColor := index $colorClasses (mod (len $name) (len $colorClasses)) }}
+            
+            {{/* Size based on count */}}
+            {{- $sizeClass := "p-4" }}
+            {{- $textSize := "text-lg" }}
+            {{- if ge $percentage 80 }}
+              {{- $sizeClass = "p-8" }}
+              {{- $textSize = "text-2xl" }}
+            {{- else if ge $percentage 50 }}
+              {{- $sizeClass = "p-6" }}
+              {{- $textSize = "text-xl" }}
+            {{- else if ge $percentage 25 }}
+              {{- $sizeClass = "p-5" }}
+              {{- $textSize = "text-lg" }}
+            {{- end }}
+            
+            <div class="{{ $randomColor }} border-4 border-black {{ $sizeClass }} shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] group-hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] group-hover:transform group-hover:-translate-x-1 group-hover:-translate-y-1 transition-all duration-200 relative overflow-hidden">
+              
+              {{/* Background pattern for visual interest */}}
+              <div class="absolute top-0 right-0 w-8 h-8 bg-black opacity-10 transform rotate-45 translate-x-4 -translate-y-4"></div>
+              
+              {{/* Term name */}}
+              <h2 class="{{ $textSize }} font-black text-black text-right mb-2 relative z-10">
+                {{- if eq $type "categories" -}}
+                  📁 {{ .Name }}
+                {{- else if eq $type "tags" -}}
+                  🏷️ {{ .Name }}
+                {{- else -}}
+                  {{ .Name }}
+                {{- end -}}
+              </h2>
+              
+              {{/* Post count */}}
+              <div class="flex justify-between items-center relative z-10">
+                <span class="bg-black text-white border-2 border-black px-3 py-1 text-sm font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,0.5)]">
+                  {{ $count }} نوشته
+                </span>
+                
+                {{/* Popularity indicator */}}
+                <div class="flex gap-1">
+                  {{- range $i := seq (div $percentage 20) }}
+                  <div class="w-2 h-2 bg-black transform rotate-45"></div>
+                  {{- end }}
+                </div>
+              </div>
+              
+              {{/* Hover effect overlay */}}
+              <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-200"></div>
+              
+            </div>
+          </a>
+        </div>
+        {{- end }}
+        {{- end }}
+      </div>
+      
+      {{/* Summary stats */}}
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-cyan-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          <div class="text-3xl font-black text-black text-center mb-2">{{ len $terms }}</div>
+          <div class="text-lg font-bold text-black text-center">
+            {{- if eq .Type "categories" -}}
+              کل دسته‌بندی‌ها
+            {{- else -}}
+              کل برچسب‌ها
+            {{- end -}}
+          </div>
+        </div>
+        
+        <div class="bg-yellow-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+          <div class="text-3xl font-black text-black text-center mb-2">{{ $maxCount }}</div>
+          <div class="text-lg font-bold text-black text-center">بیشترین تعداد نوشته</div>
+        </div>
+        
+        <div class="bg-green-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          <div class="text-3xl font-black text-black text-center mb-2">
+            {{- $totalPosts := 0 }}
+            {{- range $terms }}{{ $totalPosts = add $totalPosts .Count }}{{ end }}
+            {{ $totalPosts }}
+          </div>
+          <div class="text-lg font-bold text-black text-center">کل نوشته‌ها</div>
+        </div>
+      </div>
+      
+      {{- else }}
+      {{/* No terms found */}}
+      <div class="bg-pink-200 border-4 border-black p-8 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-2">
+        <h2 class="text-3xl font-black text-black mb-4">هیچ موضوعی پیدا نشد!</h2>
+        <p class="text-lg font-bold text-black mb-6">
+          {{- if eq .Type "categories" -}}
+            هنوز دسته‌بندی‌ای تعریف نشده است.
+          {{- else -}}
+            هنوز برچسبی اضافه نشده است.
+          {{- end -}}
+        </p>
+        <a href="{{ "/" | absLangURL }}" 
+           class="bg-blue-300 border-4 border-black px-8 py-4 font-black text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 inline-block">
+          بازگشت به صفحه اصلی
+        </a>
+      </div>
+      {{- end }}
+    </div>
+    
+  </div>
+</div>
+
+{{- end }}{{- /* end main */ -}}

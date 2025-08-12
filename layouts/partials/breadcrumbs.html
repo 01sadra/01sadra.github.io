@@ -1,0 +1,56 @@
+{{/* Minimal clean breadcrumbs navigation */}}
+<nav class="breadcrumbs mb-4">
+  <div class="flex items-center flex-wrap gap-2 text-right">
+    
+    {{/* Home link */}}
+    <a href="{{ "/" | absLangURL }}" 
+       class="breadcrumb-item bg-gray-100 border border-gray-300 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 transition-colors rounded">
+      🏠 خانه
+    </a>
+    
+    {{/* Build breadcrumb trail */}}
+    {{- $currentPage := . }}
+    {{- $breadcrumbs := slice }}
+    
+    {{/* Add current page's ancestors to breadcrumbs */}}
+    {{- range .Ancestors.Reverse }}
+      {{- if ne .Kind "home" }}
+        {{- $breadcrumbs = $breadcrumbs | append . }}
+      {{- end }}
+    {{- end }}
+    
+    {{/* Add current page if not home */}}
+    {{- if ne .Kind "home" }}
+      {{- $breadcrumbs = $breadcrumbs | append . }}
+    {{- end }}
+    
+    {{/* Render breadcrumb items */}}
+    {{- range $index, $page := $breadcrumbs }}
+      
+      {{/* Arrow separator */}}
+      <span class="breadcrumb-separator text-gray-400 font-medium text-lg">←</span>
+      
+      {{- if eq $page $currentPage }}
+        {{/* Current page - not clickable */}}
+        <span class="breadcrumb-current bg-blue-100 border border-blue-300 px-3 py-1 text-sm font-medium text-blue-800 rounded">
+          {{- if eq .Kind "taxonomy" -}}
+            {{- if eq .Type "categories" }}📁 {{ .Title }}{{ else if eq .Type "tags" }}🏷️ {{ .Title }}{{ else }}{{ .Title }}{{ end -}}
+          {{- else -}}
+            {{ .Title }}
+          {{- end -}}
+        </span>
+      {{- else }}
+        {{/* Clickable breadcrumb item */}}
+        <a href="{{ .Permalink }}" 
+           class="breadcrumb-item bg-gray-100 border border-gray-300 px-3 py-1 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 hover:border-blue-300 transition-colors rounded">
+          {{- if eq .Kind "taxonomy" -}}
+            {{- if eq .Type "categories" }}📁 {{ .Title }}{{ else if eq .Type "tags" }}🏷️ {{ .Title }}{{ else }}{{ .Title }}{{ end -}}
+          {{- else -}}
+            {{ .Title }}
+          {{- end -}}
+        </a>
+      {{- end }}
+    {{- end }}
+    
+  </div>
+</nav>

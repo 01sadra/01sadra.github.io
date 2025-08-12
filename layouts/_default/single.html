@@ -1,0 +1,152 @@
+{{- define "main" }}
+
+{{/* Neobrutalism single post container */}}
+<div class="min-h-screen bg-orange-100">
+  <div class="max-w-4xl mx-auto px-6 py-8">
+    
+    {{/* Back navigation */}}
+    <nav class="mb-6">
+      <a href="{{ "/" | absLangURL }}" 
+         class="inline-flex items-center bg-blue-300 text-black font-bold px-4 py-2 border-4 border-black hover:bg-yellow-300 transition-all transform hover:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+        ← بازگشت به صفحه اصلی
+      </a>
+    </nav>
+    
+    {{/* Article container with neobrutalism design */}}
+    <article class="post-single bg-yellow-200 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] p-8 mb-8 transform rotate-[-0.5deg]">
+      
+      {{/* Post Header */}}
+      <header class="post-header mb-8 border-b-4 border-black pb-8">
+        
+        {{/* Post title */}}
+        <h1 class="post-title text-4xl font-black text-white text-right mb-6 leading-tight bg-black p-6 transform rotate-[-0.5deg] shadow-[6px_6px_0px_0px_rgba(255,255,0,1)]" style="line-height: 1.4em; max-width: 65ch;">
+          {{ .Title }}
+          {{- if .Draft }}
+          <span class="inline-block ml-2 bg-red-300 text-black text-sm px-3 py-2 border-2 border-black font-bold shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]" title="Draft">
+            پیش‌نویس
+          </span>
+          {{- end }}
+        </h1>
+        
+        {{/* Detailed post meta with Persian formatting */}}
+        {{- if not (.Param "hideMeta") }}
+        <div class="post-meta text-sm text-black text-right space-y-3 bg-pink-200 border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+          {{/* Date and time display */}}
+          <div class="flex flex-wrap gap-6 justify-end items-center" dir="rtl">
+            <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="text-black font-black bg-blue-300 px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+              📅 {{ .Date.Day }} {{ index (slice "فروردین" "اردیبهشت" "خرداد" "تیر" "مرداد" "شهریور" "مهر" "آبان" "آذر" "دی" "بهمن" "اسفند") (sub .Date.Month 1) }} {{ sub .Date.Year 621 }}
+            </time>
+            <span class="text-black font-black bg-purple-300 px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">⏰ {{ .Date.Format "15:04" }}</span>
+            {{- if .Lastmod }}
+            {{- if ne .Date.Unix .Lastmod.Unix }}
+            <span class="text-black font-black bg-green-300 px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">🔄 آخرین بروزرسانی: {{ .Lastmod.Day }} {{ index (slice "فروردین" "اردیبهشت" "خرداد" "تیر" "مرداد" "شهریور" "مهر" "آبان" "آذر" "دی" "بهمن" "اسفند") (sub .Lastmod.Month 1) }} {{ sub .Lastmod.Year 621 }}</span>
+            {{- end }}
+            {{- end }}
+          </div>
+          
+          {{/* Reading stats */}}
+          <div class="flex flex-wrap gap-6 justify-end items-center border-t-4 border-black pt-3">
+            {{- if gt .ReadingTime 0 }}
+            <span class="text-black font-bold bg-yellow-300 px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">📚 {{ .ReadingTime }} دقیقه مطالعه</span>
+            {{- end }}
+            {{- if gt .WordCount 0 }}
+            <span class="text-black font-bold bg-orange-300 px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">📝 {{ .WordCount }} کلمه</span>
+            {{- end }}
+            {{- if .Params.author }}
+            <span class="text-black font-bold bg-pink-300 px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">✍️ نویسنده: {{ .Params.author }}</span>
+            {{- end }}
+          </div>
+          
+          {{/* Categories */}}
+          {{- $categories := .GetTerms "categories" }}
+          {{- if $categories }}
+          <div class="border-t-4 border-black pt-3">
+            <div class="flex flex-wrap gap-2 justify-end">
+              <span class="text-black font-bold bg-white px-3 py-2 border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] ml-2">دسته‌بندی:</span>
+              {{- range $categories }}
+              <a href="{{ .Permalink }}" 
+                 class="inline-block bg-purple-300 text-black font-bold px-3 py-2 border-2 border-black text-sm hover:bg-red-300 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:scale-105">
+                📁 {{ .Name }}
+              </a>
+              {{- end }}
+            </div>
+          </div>
+          {{- end }}
+        </div>
+        {{- end }}
+        
+        {{/* Post description */}}
+        {{- if (.Param "ShowPostDescription") }}
+        {{- $description := (or .Description .Summary) }}
+        {{- if $description }}
+        <div class="post-description bg-blue-300 border-4 border-black p-6 mt-6 text-right shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-[-0.5deg]" style="line-height: 1.75em;">
+          <p class="text-lg text-black font-bold">{{ $description | markdownify }}</p>
+        </div>
+        {{- end }}
+        {{- end }}
+      </header>
+
+      {{/* Post Content with Persian typography standards */}}
+      <div class="post-content prose prose-lg max-w-none text-right mb-8" 
+           style="font-size: 18px; line-height: 1.75em; max-width: 65ch; margin: 0 auto;">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+        {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}
+        {{ .Content }}
+        {{- end }}
+      </div>
+
+      {{/* Post Footer */}}
+      <footer class="post-footer border-t-4 border-black pt-8">
+        {{/* Tags */}}
+        {{- $tags := .GetTerms "tags" }}
+        {{- if $tags }}
+        <div class="post-tags mb-8">
+          <h3 class="text-lg font-black mb-4 text-right text-black bg-yellow-300 px-4 py-2 border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] inline-block transform rotate-1">برچسب‌ها:</h3>
+          <div class="flex flex-wrap gap-2 justify-end">
+            {{- range $tags }}
+            <a href="{{ .Permalink }}" 
+               class="inline-block bg-blue-300 text-black font-bold px-3 py-2 border-2 border-black text-sm hover:bg-green-300 transition-colors shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:scale-105">
+              🏷️ {{ .Name }}
+            </a>
+            {{- end }}
+          </div>
+        </div>
+        {{- end }}
+
+        {{/* Navigation between posts */}}
+        {{- if not (.Param "hidePostNavigation") }}
+        <div class="post-nav-links grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+          {{- with .PrevInSection }}
+          <a href="{{ .Permalink }}" 
+             class="prev-post bg-pink-300 border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:bg-red-300 transition-all duration-200 text-right shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:scale-105">
+            <div class="text-sm text-black font-bold mb-2">نوشته قبلی</div>
+            <div class="text-lg font-black text-black line-clamp-2">{{ .Title }}</div>
+            <div class="text-sm text-black font-bold mt-2">← مطالعه</div>
+          </a>
+          {{- end }}
+          {{- with .NextInSection }}
+          <a href="{{ .Permalink }}" 
+             class="next-post bg-green-300 border-4 border-black p-6 hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:bg-purple-300 transition-all duration-200 text-right shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform hover:scale-105">
+            <div class="text-sm text-black font-bold mb-2">نوشته بعدی</div>
+            <div class="text-lg font-black text-black line-clamp-2">{{ .Title }}</div>
+            <div class="text-sm text-black font-bold mt-2">مطالعه →</div>
+          </a>
+          {{- end }}
+        </div>
+        {{- end }}
+      </footer>
+    </article>
+    
+    {{/* Back to homepage button */}}
+    <div class="text-center mb-8">
+      <a href="{{ "/" | absLangURL }}" 
+         class="inline-block bg-orange-300 text-black font-black px-8 py-4 border-4 border-black hover:bg-yellow-300 hover:text-black transition-all transform hover:scale-105 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
+        🏠 بازگشت به صفحه اصلی
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+{{- end }}{{- /* end main */ -}}

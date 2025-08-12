@@ -4,38 +4,69 @@ languageCode = "fa-IR"
 defaultContentLanguage = "fa"
 theme = "PaperMod"
 
+[languages]
+  [languages.fa]
+    languageName = "فارسی"
+    languageDirection = "rtl"
+    weight = 1
+
 enableRobotsTXT = true
 buildDrafts = false
 buildFuture = false
 buildExpired = false
 
 summaryLength = 0
-disableKinds = ["taxonomy"]
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[build]
+  writeStats = true
+  [[build.cachebusters]]
+    source = "assets/watching/hugo_stats\\.json"
+    target = "styles\\.css"
+  [[build.cachebusters]]
+    source = "(postcss|tailwind)\\.config\\.js"
+    target = "css"
+  [[build.cachebusters]]
+    source = "assets/.*\\.(js|ts|jsx|tsx)"
+    target = "js"
+  [[build.cachebusters]]
+    source = "assets/.*\\.(.*)$"
+    target = "$1"
 
 [params]
   env = "production"
   title = "Sadra Blog"
-  description = "وبلاگ سدره علی‌آبادی"
-  keywords = ["Blog", "Hugo", "PaperMod"]
+  description = "وبلاگ صدرا علی‌آبادی"
+  keywords = ["Blog", "Hugo", "PaperMod", "Persian", "فارسی"]
   author = "Sadra Aliabadi"
   defaultTheme = "light"
   disableThemeToggle = false
+  
+  # Main sections to display on homepage
+  mainSections = ["blog"]
 
-  ShowReadingTime = false
+  ShowReadingTime = true
   ShowShareButtons = false
-  ShowPostNavLinks = false
-  ShowBreadCrumbs = false
-  ShowCodeCopyButtons = false
-  ShowWordCount = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = true
   ShowRssButtonInSectionTermList = false
   UseHugoToc = false
   disableSpecial1stPost = true
-  disableScrollToTop = true
+  disableScrollToTop = false
   comments = false
-  hidemeta = true
-  hideSummary = true
+  hidemeta = false
+  hideSummary = false
   showtoc = false
   tocopen = false
+  
+  # Persian typography and readability settings
+  ShowPostDescription = true
+  hidePostNavigation = false
 
   [params.cover]
     hidden = true
@@ -58,7 +89,7 @@ disableKinds = ["taxonomy"]
   minifyOutput = true
 
 [pagination]
-  pagerSize = 5
+  pagerSize = 1000
 
 [sitemap]
   changefreq = "weekly"
@@ -72,6 +103,8 @@ disableKinds = ["taxonomy"]
   home = ["HTML", "RSS"]
   page = ["HTML"]
   section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
 
 [params.assets]
   customCSS = ["/css/rtl.css"]

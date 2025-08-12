@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="rtl">
+
+<head>
+    {{- partial "head.html" . }}
+</head>
+
+<body class="min-h-screen bg-orange-100" id="top">
+    {{- partial "header.html" . }}
+    
+    <main class="main">
+        {{- block "main" . }}{{- end }}
+    </main>
+
+    {{- partial "footer.html" . }}
+    
+    {{/* Custom RTL and minimal styling */}}
+    <script>
+        // Ensure proper RTL direction
+        document.body.style.direction = 'rtl';
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,228 @@
+{{- define "main" }}
+
+{{/* Neobrutalism search page */}}
+<div class="min-h-screen bg-gradient-to-br from-purple-100 via-blue-100 to-cyan-100 p-4">
+  <div class="max-w-4xl mx-auto">
+    
+    {{/* Search header */}}
+    <header class="page-header mb-8">
+      <div class="bg-black text-white border-6 border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+        <h1 class="text-5xl font-black text-right mb-4">
+          🔍 {{ .Title | default "جستجو" }}
+        </h1>
+        {{- if .Description }}
+        <div class="post-description">
+          <p class="text-xl font-bold text-right opacity-90">{{ .Description }}</p>
+        </div>
+        {{- else }}
+        <p class="text-xl font-bold text-right opacity-90">در میان تمام نوشته‌های وبلاگ جستجو کنید</p>
+        {{- end }}
+        {{- if not (.Param "hideMeta") }}
+        <div class="post-meta mt-4">
+          {{- partial "translation_list.html" . -}}
+        </div>
+        {{- end }}
+      </div>
+    </header>
+    
+    {{/* Search interface */}}
+    <div class="search-interface mb-8">
+      <div class="bg-white border-6 border-black p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1">
+        
+        {{/* Search box */}}
+        <div id="searchbox" class="search-box mb-6">
+          <div class="relative">
+            <input id="searchInput" 
+                   type="search" 
+                   autofocus 
+                   autocomplete="off" 
+                   maxlength="64"
+                   placeholder="{{ .Params.placeholder | default "عبارت مورد نظر را وارد کنید..." }}"
+                   aria-label="search" 
+                   class="w-full text-2xl font-bold text-right border-4 border-black p-6 pr-16 focus:outline-none focus:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] focus:transform focus:-translate-x-1 focus:-translate-y-1 transition-all duration-200 bg-yellow-100">
+            
+            {{/* Search icon */}}
+            <div class="absolute right-4 top-1/2 transform -translate-y-1/2 text-3xl">🔍</div>
+            
+            {{/* Search button */}}
+            <button type="button" 
+                    onclick="document.getElementById('searchInput').focus()" 
+                    class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-pink-400 border-3 border-black px-4 py-2 font-black text-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200">
+              جستجو
+            </button>
+          </div>
+          
+          {{/* Search tips */}}
+          <div class="search-tips mt-4 flex flex-wrap gap-2 justify-end">
+            <span class="bg-blue-200 border-2 border-black px-3 py-1 text-sm font-bold text-black">
+              💡 نکته: کلمات کلیدی را با فاصله جدا کنید
+            </span>
+            <span class="bg-green-200 border-2 border-black px-3 py-1 text-sm font-bold text-black">
+              ⚡ جستجو در عنوان، متن و برچسب‌ها
+            </span>
+          </div>
+        </div>
+        
+        {{/* Loading indicator */}}
+        <div id="searchLoading" class="search-loading hidden text-center py-8">
+          <div class="inline-block bg-orange-300 border-4 border-black p-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-2">
+            <div class="text-2xl font-black text-black mb-2">🔄</div>
+            <div class="text-lg font-bold text-black">در حال جستجو...</div>
+          </div>
+        </div>
+        
+        {{/* No results message */}}
+        <div id="searchNoResults" class="search-no-results hidden text-center py-8">
+          <div class="bg-red-200 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1 max-w-lg mx-auto">
+            <div class="text-4xl mb-4">😕</div>
+            <h3 class="text-xl font-black text-black mb-3">نتیجه‌ای پیدا نشد!</h3>
+            <p class="text-sm font-bold text-gray-700 text-right">
+              متأسفانه هیچ نوشته‌ای با این کلمات کلیدی پیدا نشد. کلمات دیگری را امتحان کنید.
+            </p>
+          </div>
+        </div>
+        
+        {{/* Search results */}}
+        <div id="searchResults" aria-label="search results" class="search-results"></div>
+        
+      </div>
+    </div>
+    
+    {{/* Search suggestions */}}
+    <div class="search-suggestions">
+      <div class="bg-cyan-200 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+        <h3 class="text-xl font-black text-black mb-4 text-right">💭 پیشنهادات جستجو</h3>
+        
+        <div class="suggestions-grid grid grid-cols-2 md:grid-cols-4 gap-4">
+          {{/* Popular categories */}}
+          {{- range first 4 site.Taxonomies.categories.ByCount }}
+          <a href="/categories/{{ .Name | urlize }}/" 
+             class="suggestion-item bg-yellow-300 border-3 border-black p-3 text-center font-bold text-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 block">
+            📁 {{ .Name }}
+            <div class="text-xs opacity-75 mt-1">{{ .Count }} نوشته</div>
+          </a>
+          {{- end }}
+          
+          {{/* Popular tags */}}
+          {{- range first 4 site.Taxonomies.tags.ByCount }}
+          <a href="/tags/{{ .Name | urlize }}/" 
+             class="suggestion-item bg-purple-300 border-3 border-black p-3 text-center font-bold text-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 block">
+            🏷️ {{ .Name }}
+            <div class="text-xs opacity-75 mt-1">{{ .Count }} نوشته</div>
+          </a>
+          {{- end }}
+        </div>
+        
+        {{/* Quick navigation */}}
+        <div class="quick-nav mt-6 flex flex-wrap justify-center gap-4">
+          <a href="/archives/" 
+             class="bg-pink-400 border-3 border-black px-4 py-2 font-bold text-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200">
+            📚 آرشیو کامل
+          </a>
+          <a href="/categories/" 
+             class="bg-green-400 border-3 border-black px-4 py-2 font-bold text-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200">
+            📁 همه دسته‌ها
+          </a>
+          <a href="/tags/" 
+             class="bg-blue-400 border-3 border-black px-4 py-2 font-bold text-black hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200">
+            🏷️ همه برچسب‌ها
+          </a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+{{/* Search JavaScript */}}
+<script>
+// Neobrutalism search results styling
+function renderSearchResult(item) {
+  const colorClasses = ['bg-yellow-200', 'bg-blue-200', 'bg-green-200', 'bg-pink-200', 'bg-purple-200', 'bg-cyan-200'];
+  const randomColor = colorClasses[Math.floor(Math.random() * colorClasses.length)];
+  
+  return `
+    <div class="search-result-item ${randomColor} border-4 border-black p-6 mb-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200">
+      <h3 class="text-xl font-black text-black text-right mb-2">
+        <a href="${item.permalink}" class="hover:underline hover:text-pink-600">${item.title}</a>
+      </h3>
+      <p class="text-sm font-medium text-gray-700 text-right mb-3">${item.summary}</p>
+      <div class="flex flex-wrap justify-end gap-2">
+        <span class="bg-black text-white border-2 border-black px-2 py-1 text-xs font-bold">
+          📅 ${new Date(item.date).toLocaleDateString('fa-IR')}
+        </span>
+        ${item.tags ? item.tags.slice(0, 3).map(tag => 
+          `<span class="bg-white border-2 border-black px-2 py-1 text-xs font-bold">🏷️ ${tag}</span>`
+        ).join('') : ''}
+      </div>
+      <a href="${item.permalink}" class="absolute inset-0 z-10" aria-label="link to ${item.title}"></a>
+    </div>
+  `;
+}
+
+// Search functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  const searchLoading = document.getElementById('searchLoading');
+  const searchNoResults = document.getElementById('searchNoResults');
+  
+  let searchData = null;
+  
+  // Load search index
+  fetch('/index.json')
+    .then(response => response.json())
+    .then(data => {
+      searchData = data;
+    })
+    .catch(error => {
+      console.error('Failed to load search index:', error);
+    });
+  
+  // Search function
+  function performSearch(query) {
+    if (!searchData || !query.trim()) {
+      searchResults.innerHTML = '';
+      searchNoResults.classList.add('hidden');
+      return;
+    }
+    
+    searchLoading.classList.remove('hidden');
+    searchNoResults.classList.add('hidden');
+    
+    // Simple search implementation
+    setTimeout(() => {
+      const results = searchData.filter(item => 
+        item.title.toLowerCase().includes(query.toLowerCase()) ||
+        item.content.toLowerCase().includes(query.toLowerCase()) ||
+        (item.tags && item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase())))
+      ).slice(0, 10);
+      
+      searchLoading.classList.add('hidden');
+      
+      if (results.length === 0) {
+        searchResults.innerHTML = '';
+        searchNoResults.classList.remove('hidden');
+      } else {
+        searchNoResults.classList.add('hidden');
+        searchResults.innerHTML = results.map(renderSearchResult).join('');
+      }
+    }, 500);
+  }
+  
+  // Search on input
+  searchInput.addEventListener('input', function(e) {
+    performSearch(e.target.value);
+  });
+  
+  // Search on enter
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      performSearch(e.target.value);
+    }
+  });
+});
+</script>
+
+{{- end }}{{- /* end main */ -}}

@@ -1,0 +1,169 @@
+{{- define "main" }}
+
+{{/* Neobrutalism archives page container */}}
+<div class="min-h-screen bg-gradient-to-br from-cyan-100 to-yellow-100 p-4">
+  <div class="max-w-5xl mx-auto">
+    
+    {{/* Archives header */}}
+    <header class="page-header mb-12">
+      <div class="bg-black text-white border-6 border-black p-8 shadow-[16px_16px_0px_0px_rgba(0,0,0,1)] transform -rotate-2">
+        <h1 class="text-6xl font-black text-right mb-4">
+          📚 {{ .Title }}
+          {{- if (.Param "ShowRssButtonInSectionTermList") }}
+          {{- $rss := (.OutputFormats.Get "rss") }}
+          {{- if (eq .Kind `page`) }}
+          {{- $rss = (.Parent.OutputFormats.Get "rss") }}
+          {{- end }}
+          {{- with $rss }}
+          <a href="{{ .RelPermalink }}" title="RSS" aria-label="RSS"
+             class="inline-block bg-orange-400 border-2 border-black px-4 py-2 text-lg font-bold text-black hover:bg-red-400 hover:shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 mr-4">
+            RSS
+          </a>
+          {{- end }}
+          {{- end }}
+        </h1>
+        {{- if .Description }}
+        <div class="post-description">
+          <p class="text-xl font-bold text-right opacity-90">{{ .Description }}</p>
+        </div>
+        {{- else }}
+        <p class="text-xl font-bold text-right opacity-90">آرشیو کامل تمام نوشته‌های این وبلاگ</p>
+        {{- end }}
+      </div>
+    </header>
+
+    {{/* Archives timeline */}}
+    {{- $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+    
+    {{- if site.Params.ShowAllPagesInArchive }}
+    {{- $pages = site.RegularPages }}
+    {{- end }}
+    
+    {{- if $pages }}
+    <div class="archives-timeline relative">
+      
+      {{/* Timeline line */}}
+      <div class="absolute right-8 top-0 bottom-0 w-1 bg-black transform rotate-2 hidden md:block"></div>
+      
+      {{/* Year groups */}}
+      {{- range $pages.GroupByPublishDate "2006" }}
+      {{- if ne .Key "0001" }}
+      {{- $year := replace .Key "0001" "" }}
+      
+      <div class="archive-year mb-16">
+        
+        {{/* Year header */}}
+        <div class="year-header relative md:mr-20 mb-8">
+          {{/* Timeline node */}}
+          <div class="absolute -right-12 top-1/2 transform -translate-y-1/2 w-8 h-8 bg-pink-400 border-4 border-black rotate-45 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hidden md:block"></div>
+          
+          <h2 class="archive-year-header bg-gradient-to-l from-pink-300 to-yellow-300 border-4 border-black p-6 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-1 inline-block">
+            <span class="text-4xl font-black text-black">{{ $year }}</span>
+            <span class="block text-lg font-bold text-black opacity-75">{{ len .Pages }} نوشته</span>
+          </h2>
+        </div>
+        
+        {{/* Posts in this year */}}
+        <div class="year-posts grid grid-cols-1 lg:grid-cols-2 gap-6 md:mr-20">
+          {{- range .Pages }}
+          <article class="archive-post bg-white border-4 border-black p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 group relative">
+            
+            {{/* Date badge */}}
+            <div class="absolute -top-3 -right-3 bg-blue-300 border-3 border-black px-3 py-1 text-sm font-bold text-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transform rotate-12">
+              {{ .Date.Day }} {{ index (slice "فروردین" "اردیبهشت" "خرداد" "تیر" "مرداد" "شهریور" "مهر" "آبان" "آذر" "دی" "بهمن" "اسفند") (sub .Date.Month 1) }}
+            </div>
+            
+            {{/* Post content */}}
+            <header class="post-header mb-4">
+              <h3 class="text-xl font-black text-right mb-2 text-black group-hover:text-pink-600 transition-colors duration-200">
+                <a href="{{ .Permalink }}" class="hover:underline">
+                  {{ .Title }}
+                  {{- if .Draft }}
+                  <span class="bg-red-400 border-2 border-black px-2 py-1 text-xs font-bold ml-2">DRAFT</span>
+                  {{- end }}
+                </a>
+              </h3>
+              
+              {{/* Post meta */}}
+              <div class="flex flex-wrap gap-2 justify-end mb-3">
+                {{- range .GetTerms "categories" }}
+                <span class="bg-green-200 border-2 border-black px-2 py-1 text-xs font-bold text-black">
+                  📁 {{ .Name }}
+                </span>
+                {{- end }}
+                {{- range first 3 (.GetTerms "tags") }}
+                <span class="bg-purple-200 border-2 border-black px-2 py-1 text-xs font-bold text-black">
+                  🏷️ {{ .Name }}
+                </span>
+                {{- end }}
+              </div>
+            </header>
+            
+            {{/* Post summary */}}
+            {{- if .Summary }}
+            <div class="post-summary text-right text-gray-700 font-medium text-sm mb-4">
+              {{ .Summary | truncate 120 | plainify }}{{ if .Truncated }}...{{ end }}
+            </div>
+            {{- end }}
+            
+            {{/* Reading time and word count */}}
+            <footer class="post-footer flex justify-between items-center text-xs font-bold text-gray-600">
+              <div class="bg-cyan-200 border-2 border-black px-2 py-1">
+                ⏱️ {{ .ReadingTime }} دقیقه مطالعه
+              </div>
+              <div class="bg-orange-200 border-2 border-black px-2 py-1">
+                📝 {{ .WordCount }} کلمه
+              </div>
+            </footer>
+            
+            {{/* Link overlay */}}
+            <a href="{{ .Permalink }}" class="absolute inset-0 z-10" aria-label="link to {{ .Title }}"></a>
+            
+          </article>
+          {{- end }}
+        </div>
+        
+      </div>
+      {{- end }}
+      {{- end }}
+      
+      {{/* Archive stats summary */}}
+      <div class="archive-summary mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {{- $totalPosts := len $pages }}
+        {{- $years := len ($pages.GroupByPublishDate "2006") }}
+        {{- $avgPerYear := div $totalPosts $years }}
+        
+        <div class="stat-card bg-pink-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-2 text-center">
+          <div class="text-4xl font-black text-black mb-2">{{ $totalPosts }}</div>
+          <div class="text-lg font-bold text-black">کل نوشته‌ها</div>
+        </div>
+        
+        <div class="stat-card bg-yellow-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-2 text-center">
+          <div class="text-4xl font-black text-black mb-2">{{ sub now.Year 2017 }}</div>
+          <div class="text-lg font-bold text-black">سال فعالیت</div>
+        </div>
+        
+        <div class="stat-card bg-green-300 border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform rotate-2 text-center">
+          <div class="text-4xl font-black text-black mb-2">{{ $avgPerYear }}</div>
+          <div class="text-lg font-bold text-black">متوسط در سال</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    {{- else }}
+    {{/* No posts found */}}
+    <div class="bg-red-200 border-4 border-black p-8 text-center shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transform rotate-3">
+      <h2 class="text-3xl font-black text-black mb-4">آرشیوی پیدا نشد!</h2>
+      <p class="text-lg font-bold text-black mb-6">هنوز هیچ نوشته‌ای در آرشیو موجود نیست.</p>
+      <a href="{{ "/" | absLangURL }}" 
+         class="bg-blue-300 border-4 border-black px-8 py-4 font-black text-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:transform hover:-translate-x-1 hover:-translate-y-1 transition-all duration-200 inline-block">
+        بازگشت به صفحه اصلی
+      </a>
+    </div>
+    {{- end }}
+    
+  </div>
+</div>
+
+{{- end }}{{- /* end main */ -}}

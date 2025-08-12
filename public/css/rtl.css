@@ -1,53 +1,327 @@
-/* کل صفحه راست به چپ بشه */
+/* Enhanced Persian Typography & Minimal Design for Hugo Blog */
+/* Based on W3C Arabic & Persian Layout Requirements */
+
+/* Base RTL Configuration */
 html, body {
-    direction: rtl;
-    unicode-bidi: embed;
-    text-align: right;
-  }
-  
-  /* متن‌ها راست‌چین بشه */
-  p, li, span, div, h1, h2, h3, h4, h5, h6 {
-    direction: rtl;
-    text-align: right;
-  }
-  
-  /* nav و منوها هم راست به چپ */
-  nav, .breadcrumbs, .pagination, .menu, .site-nav {
-    direction: rtl;
-  }
-  
-  /* لیست پست‌ها */
-  article, .post-entry {
-    text-align: right;
-    direction: rtl;
-  }
-  
-  /* جدول‌ها راست‌چین بشن */
-  table {
-    direction: rtl;
-  }
-  
-  /* کدها LTR بمونن */
-  code, pre {
-    direction: ltr;
-    text-align: left;
-  }
-  
-  /* fix برای بخش title و description در Home */
-  .home-info {
-    direction: rtl;
-    text-align: right;
-  }
-  
-  /* فونت فارسی Vazir */
-  @font-face {
-    font-family: 'Vazir';
-    src: url('/fonts/Vazir.woff2') format('woff2'),
-         url('/fonts/Vazir.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-  
+  direction: rtl;
+  unicode-bidi: embed;
+  text-align: right;
+  font-synthesis: none;
+  -webkit-font-feature-settings: "liga" on, "calt" on;
+  font-feature-settings: "liga" on, "calt" on;
+}
+
+/* Persian Typography Standards */
+body {
+  font-family: 'Vazir', 'Tahoma', 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.75; /* Optimal for Persian text readability */
+  letter-spacing: 0.01em; /* Slight spacing for Persian */
+  color: #1f2937; /* Near-black for high contrast */
+  background-color: #ffffff; /* Pure white background */
+}
+
+/* Headings with Persian-optimized spacing */
+h1, h2, h3, h4, h5, h6 {
+  direction: rtl;
+  text-align: right;
+  line-height: 1.4; /* Tighter line height for headings */
+  margin-bottom: 1rem;
+  color: #111827; /* Darker for headings */
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+/* Paragraph optimization for Persian readability */
+p {
+  direction: rtl;
+  text-align: right;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+  max-width: 65ch; /* Optimal line length for Persian */
+  hyphens: none; /* No hyphenation for Persian */
+}
+
+/* Lists with proper Persian alignment */
+ul, ol {
+  direction: rtl;
+  text-align: right;
+  margin-bottom: 1.5rem;
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+li {
+  direction: rtl;
+  text-align: right;
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+}
+
+/* Navigation and UI elements */
+nav, .breadcrumbs, .pagination, .menu, .site-nav {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Article and post styling */
+article, .post-entry {
+  text-align: right;
+  direction: rtl;
+}
+
+.post-content {
+  line-height: 1.75;
+  font-size: 18px; /* Slightly larger for better readability */
+}
+
+/* Code blocks remain LTR */
+code, pre {
+  direction: ltr;
+  text-align: left;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.875rem;
+}
+
+/* Inline code styling */
+code {
+  background-color: #f3f4f6;
+  color: #e11d48;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+
+/* Pre-formatted text blocks */
+pre {
+  background-color: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+/* Tables with RTL support */
+table {
+  direction: rtl;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+th, td {
+  text-align: right;
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+  font-weight: 600;
+  background-color: #f9fafb;
+}
+
+/* Blockquotes */
+blockquote {
+  direction: rtl;
+  text-align: right;
+  border-right: 4px solid #3b82f6;
+  border-left: none;
+  padding-right: 1.5rem;
+  padding-left: 0;
+  margin: 1.5rem 0;
+  font-style: normal; /* Persian doesn't use italics traditionally */
+  color: #4b5563;
+  background-color: #f8fafc;
+  border-radius: 0.25rem;
+  padding: 1.5rem;
+}
+
+/* Links with minimal styling */
+a {
+  color: #2563eb;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* Form elements */
+input, textarea, select {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Home info section */
+.home-info {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Post meta enhancements */
+.post-meta {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.post-meta time {
+  color: #2563eb;
+  font-weight: 500;
+}
+
+/* Pagination styling */
+.pagination {
+  direction: rtl;
+}
+
+.pagination a, .pagination span {
+  text-align: center;
+}
+
+/* Search and archives */
+.search-results, .archives {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Mobile responsiveness for Persian text */
+@media (max-width: 768px) {
   body {
-    font-family: 'Vazir', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
   }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+  }
+  
+  .post-content {
+    font-size: 16px;
+  }
+  
+  p {
+    max-width: 100%;
+  }
+}
+
+/* Enhanced focus styles for accessibility */
+:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.6;
+    color: #000;
+    background: #fff;
+  }
+  
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+}
+
+/* Persian number support */
+.persian-digits {
+  font-feature-settings: "locl";
+}
+
+/* Custom selections */
+::selection {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+::-moz-selection {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+
+/* Ensure proper font loading */
+@font-face {
+  font-family: 'Vazir';
+  src: url('/fonts/Vazir.woff2') format('woff2'),
+       url('/fonts/Vazir.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Minimal color palette variables for consistency */
+:root {
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --text-accent: #2563eb;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --border-light: #e5e7eb;
+  --border-accent: #3b82f6;
+}
+
+/* Apply minimal color palette */
+body {
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+
+.border-light {
+  border-color: var(--border-light);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced readability for Persian text */
+.prose {
+  max-width: 65ch; /* Optimal reading width */
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+/* Improved spacing for Persian punctuation */
+.post-content p {
+  text-align: justify;
+  text-justify: auto;
+}
